@@ -1,0 +1,122 @@
+import '/lang/l.dart';
+
+Map<String, String> deLanguage = {
+  L.addReminder: "Erinnerung hinzufügen",
+  L.youCanOnlyHaveUpTo10Reminders: "Sie können nur bis zu 10 Erinnerungen haben",
+  L.youCanOnlyHaveUpTo15Reminders: "Sie können nur bis zu 15 Erinnerungen haben",
+  L.enterTitle: "Titel eingeben",
+  L.thisReminderAlreadyExists: "Diese Erinnerung existiert bereits",
+  L.error: "Fehler",
+  L.unlockFeature: "Funktionen freischalten",
+  L.unlockSuccess: "Freischaltung erfolgreich",
+  L.success: "Erfolg",
+  L.standardReminderUnlock1:
+      "Freischaltung der Erstellung benutzerdefinierter Erinnerungszeiten\n+ Freischaltung der Bearbeitung von Erinnerungsinhalten",
+  L.standardReminderUnlock2: "Erhöhen Sie die Anzahl der Erinnerungen auf 15",
+
+  L.unlockFeatureSetting: "Funktionen freischalten (kostenlos)",
+
+  L.allReminder: "Alle Erinnerungen",
+
+  L.watchAdsToUnlock: "Werbung ansehen, um diese Funktion vollständig kostenlos freizuschalten.",
+
+  L.watchAds: "Werbung ansehen",
+
+  L.thisActionMayContainAdvertising: "Diese Aktion kann Werbung enthalten.",
+  //
+  L.permission: "Berechtigung",
+  L.allowAccess: "Zugriff erlauben",
+  L.permissionDesc:
+      "Diese App benötigt die folgenden Berechtigungen, um ordnungsgemäß zu funktionieren",
+  L.reminder: "Erinnerung",
+  L.statistical: "Statistik",
+  L.dailyReminderAt: "Tägliche Erinnerung um",
+  L.recentDrinkingHistory: "Letzte Trinkhistorie",
+  L.splashDes: "Diese Aktion kann Werbung enthalten",
+  L.setting: "Einstellungen",
+  L.language: "Sprache",
+  L.rate: "Bewerten",
+  L.rateUs: "Bewerten Sie uns",
+  L.share: "Teilen",
+  L.privacyPolicy: "Datenschutzrichtlinie",
+  L.sharing: "Teilen",
+  L.notNow: "Nicht jetzt",
+  L.submit: "Einreichen",
+  L.titleBoarding1: "Ihr Wellness-Partner",
+  L.contentBoarding1:
+      "Einfach, intelligent und zugeschnitten, um Sie gesund und hydratisiert zu halten.",
+  L.titleBoarding2: "Tägliche Ziele hinzufügen",
+  L.contentBoarding2:
+      "Fügen Sie ein tägliches Wasserziel hinzu, um einen gesünderen, ausgewogeneren Lebensstil zu fördern.",
+  L.titleBoarding3: "Bleiben Sie rechtzeitig hydratisiert",
+  L.contentBoarding3:
+      "Stellen Sie Erinnerungen ein, um Wasser zu trinken und Ihre Wellness-Ziele zu erreichen.",
+  L.titleBoarding4: "Überprüfen Sie Ihren Fortschritt",
+  L.contentBoarding4:
+      "Ansehen von detaillierten Statistiken zur Analyse und Verbesserung Ihrer Trinkgewohnheiten.",
+  L.noInternet: "Kein Internet",
+  L.thereIsNoInternet:
+      "Es besteht keine Internetverbindung! Bitte überprüfen Sie Ihre Internetverbindung!",
+  L.tryAgain: "Erneut versuchen",
+  L.rateTitle: "Ihre Meinung zählt für uns",
+  L.rateDesc:
+      "Wenn Ihnen diese App gefällt, würden Sie uns im Google Play Store bewerten?",
+  L.thankYouRate: "Vielen Dank für Ihre Bewertung",
+  L.next: "Weiter",
+  L.wellcome: "Willkommen",
+  L.wellcomeBack: "Willkommen zurück",
+  L.continuee: "Fortsetzen",
+  L.settingtitle: "Einstellungen",
+  L.save: "Speichern",
+  L.dailyGoal: "Tagesziel",
+  L.dailyGoalHint: "Geben Sie Ihr Ziel ein...",
+  L.dailyGoalDes:
+      "Geben Sie die Menge Wasser ein, die Sie basierend auf Ihrem Gewicht trinken sollten, 30 ml/kg (abhängig von verschiedenen Faktoren).",
+  L.nextReminder: "Nächste Erinnerung",
+  L.drink: "TRINKEN",
+  L.createDrink: "Getränk erstellen",
+  L.water: "Wasser",
+  L.history: "Verlauf",
+  L.settings: "Einstellungen",
+  L.reminderMode: "Erinnerungsmodus",
+  L.reminderModeDes:
+      "Wählen Sie den Erinnerungsmodus und richten Sie Ihre Erinnerung ein.",
+  L.standard: "Standard",
+  L.standardDes: "Abgestimmt auf Ihren Schlaf- und Essensplan",
+  L.interval: "Intervall",
+  L.intervalDes: "Benachrichtigt Sie in regelmäßigen Abständen.",
+  L.standardReminder: "Standarderinnerung",
+  L.left: "verbleibend",
+  L.mins: "Minuten",
+  L.hour: "Stunde",
+  L.intervalReminder: "Intervallerinnerung",
+  L.bedTime: "Schlafenszeit",
+  L.intervalReminderDes:
+      "Wir senden Ihnen alle 30 Minuten Erinnerungen während Ihrer aktiven Stunden:",
+  L.to: "bis",
+  L.sleepEnTime: "Schlafenszeit Ende",
+  L.sleepStart: "Schlafenszeit Anfang",
+  L.total: "Gesamt",
+  L.goal: "Ziel",
+  L.unit: "Einheit",
+  L.units: "Einheiten",
+  L.recent: "Kürzlich",
+  L.day: "Tag",
+  L.week: "Woche",
+  L.month: "Monat",
+  L.average: "Durchschnitt",
+  L.noRecent: "Keine aktuellen Daten gefunden",
+  L.version: "Version",
+  L.cancel: "Abbrechen",
+  L.today: "Heute",
+  L.editTime: "bearbeiten",
+  L.notiTitle: "Es ist Zeit, Wasser zu trinken!",
+  L.notiDes:
+      "Trink Wasser, um gesund zu bleiben, und vergiss nicht, deinen Verbrauch in der App zu aktualisieren.",
+  L.deleteRecord: "Datensatz löschen",
+  L.areYouSureDelete:
+      "Möchten Sie diesen Datensatz wirklich aus Ihrem Verlauf löschen?",
+  L.delete: "Löschen",
+  L.youHaveAchievedYourGoalToday: "Sie haben Ihr Ziel heute erreicht",
+  L.welcomeBack: "Willkommen zurück",
+};

@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradStroke" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(156.44)">
+      <stop offset="0%" stop-color="#4B8CE7"/>
+      <stop offset="65.18%" stop-color="#186EE7"/>
+    </linearGradient>
+  </defs>
+  <path d="M8.91016 19.92L15.4302 13.4C16.2002 12.63 16.2002 11.37 15.4302 10.6L8.91016 4.08002" 
+        stroke="url(#gradStroke)" 
+        stroke-width="1.5" 
+        stroke-miterlimit="10" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>

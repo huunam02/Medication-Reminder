@@ -1,0 +1,122 @@
+import '/lang/l.dart';
+
+Map<String, String> ptLanguage = {
+  L.addReminder: "Adicionar Lembrete",
+  L.youCanOnlyHaveUpTo10Reminders: "Você só pode ter até 10 lembretes",
+  L.youCanOnlyHaveUpTo15Reminders: "Você só pode ter até 15 lembretes",
+  L.enterTitle: "Digite o Título",
+  L.thisReminderAlreadyExists: "Este lembrete já existe",
+  L.error: "Erro",
+  L.unlockFeature: "Desbloquear",
+  L.unlockSuccess: "Desbloqueio bem-sucedido",
+  L.success: "Sucesso",
+  L.standardReminderUnlock1:
+      "Desbloquear a criação de horários de lembretes personalizados\n+ Desbloquear a edição do conteúdo do lembrete",
+  L.standardReminderUnlock2: "Aumentar o número de lembretes para 15",
+
+  L.unlockFeatureSetting: "Desbloquear recursos (grátis)",
+
+  L.allReminder: "Todos os Lembretes",
+
+  L.watchAdsToUnlock: "Assista a anúncios para desbloquear este recurso completamente grátis.",
+
+  L.watchAds: "Assistir Anúncios",
+
+  L.thisActionMayContainAdvertising: "Esta ação pode conter publicidade.",
+
+  //
+  L.permission: "Permissão",
+  L.allowAccess: "Permitir acesso",
+  L.permissionDesc:
+      "Este aplicativo precisa das permissões abaixo para funcionar corretamente",
+  L.reminder: "Lembrete",
+  L.statistical: "Estatísticas",
+  L.dailyReminderAt: "Lembrete diário às",
+  L.recentDrinkingHistory: "Histórico recente de ingestão",
+  L.splashDes: "Esta ação pode conter publicidade",
+  L.setting: "Configuração",
+  L.language: "Idioma",
+  L.rate: "Classificar",
+  L.rateUs: "Classifique-nos",
+  L.share: "Compartilhar",
+  L.privacyPolicy: "Política de Privacidade",
+  L.sharing: "Compartilhando",
+  L.notNow: "Agora não",
+  L.submit: "Enviar",
+  L.titleBoarding1: "Seu Parceiro de Bem-Estar",
+  L.contentBoarding1:
+      "Simples, inteligente e personalizado para mantê-lo saudável e hidratado.",
+  L.titleBoarding2: "Adicione seus objetivos diários",
+  L.contentBoarding2:
+      "Adicione um objetivo diário de água para construir um estilo de vida saudável e equilibrado.",
+  L.titleBoarding3: "Permaneça Hidratado na Hora Certa",
+  L.contentBoarding3:
+      "Defina lembretes para beber água e manter seus objetivos de bem-estar.",
+  L.titleBoarding4: "Revise Seu Progresso",
+  L.contentBoarding4:
+      "Veja estatísticas detalhadas para analisar e melhorar seus hábitos de consumo de água.",
+  L.noInternet: "Sem internet",
+  L.thereIsNoInternet:
+      "Não há conexão com a internet! Por favor, verifique sua conexão com a internet!",
+  L.tryAgain: "Tentar Novamente",
+  L.rateTitle: "Sua opinião é importante para nós",
+  L.rateDesc:
+      "Se você gostar deste aplicativo, se importaria de nos avaliar no Google Play",
+  L.thankYouRate: "Obrigado pela sua avaliação",
+  L.next: "Próximo",
+  L.wellcome: "Bem-Vindo",
+  L.wellcomeBack: "Bem-Vindo de Volta",
+  L.continuee: "Continuar",
+  L.settingtitle: "Configurações",
+  L.save: "Salvar",
+  L.dailyGoal: "Meta Diária",
+  L.dailyGoalHint: "Digite sua meta...",
+  L.dailyGoalDes:
+      "Digite a quantidade de água a ser bebida com base em seu peso, 30ml/kg (sujeito a alterações devido a vários fatores).",
+  L.nextReminder: "Próximo Lembrete",
+  L.drink: "BEBER",
+  L.createDrink: "Criar Bebida",
+  L.water: "Água",
+  L.history: "Histórico",
+  L.settings: "Configurações",
+  L.reminderMode: "Modo de Lembrete",
+  L.reminderModeDes: "Selecione o modo de lembrete e configure seu lembrete.",
+  L.standard: "Padrão",
+  L.standardDes: "Alinhado com seu horário de sono e alimentação",
+  L.interval: "Intervalo",
+  L.intervalDes: "Notificá-lo em intervalos regulares.",
+  L.standardReminder: "Lembrete Padrão",
+  L.left: "restante",
+  L.mins: "min",
+  L.hour: "hora",
+  L.intervalReminder: "Lembrete de Intervalo",
+  L.bedTime: "Hora de Dormir",
+  L.intervalReminderDes:
+      "Enviaremos lembretes a cada 30 minutos durante suas horas ativas:",
+  L.to: "para",
+  L.sleepEnTime: "Hora de término do sono",
+  L.sleepStart: "Hora de início do sono",
+  L.total: "Total",
+  L.goal: "Meta",
+  L.unit: "Unidade",
+  L.units: "Unidades",
+  L.recent: "Recente",
+  L.day: "Dia",
+  L.week: "Semana",
+  L.month: "Mês",
+  L.average: "Média",
+  L.noRecent: "Nenhum recente encontrado",
+  L.version: "versão",
+  L.cancel: "Cancelar",
+  L.today: "Hoje",
+  L.editTime: "Editar hora",
+  L.notiTitle: "É hora de beber água!",
+  L.notiDes:
+      "Beba água para se manter saudável e não se esqueça de atualizar sua ingestão no aplicativo.",
+  L.deleteRecord: "Excluir registro",
+  L.areYouSureDelete:
+      "Tem certeza de que deseja excluir este registro do seu histórico?",
+  L.delete: "Excluir",
+  L.youHaveAchievedYourGoalToday: "Você alcançou sua meta hoje",
+  L.welcomeBack: "Bem-vindo de volta",
+};
