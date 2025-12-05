@@ -1,6 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:lottie/lottie.dart';
-
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
 import '/lang/l.dart';
@@ -55,7 +52,7 @@ class _WaterScreenState extends State<WaterScreen> {
       isShowBgImages: false,
       appbar: AppbarBase(
         title: GradientText(
-          L.water.tr,
+          "Uống thuốc",
           gradient: GlobalColors.linearPrimary2,
           style: GlobalTextStyles.font20w600ColorWhite,
         ),
@@ -63,44 +60,21 @@ class _WaterScreenState extends State<WaterScreen> {
       child: SafeArea(
         child: Stack(
           children: [
-            Obx(
-              () => waterCtr.isShowHello.value
-                  ? _buildHello()
-                  : SizedBox.shrink(),
-            ),
             SizedBox.expand(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Obx(
-                    () {
-                      if (waterCtr.drankWater.value >=
-                              waterCtr.dailyGoal.value &&
-                          waterCtr.isShowHello.value == false) {
-                        return _buildCompleteGoalText();
-                      }
-                      return SizedBox.shrink();
-                    },
-                  ),
                   Spacer(),
-                  CupRiverAnimation(),
+                  MedicinceAnimation(),
                   SizedBox(
                     height: 43.h,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Obx(
-                          () => Text(
-                            convertUnitData(waterCtr.drankWater.value),
-                            style: GlobalTextStyles.font32w600ColorBlack,
-                          ),
-                        ),
-                        Obx(
-                          () => Text(
-                            settingCtl.unit.value,
-                            style: GlobalTextStyles.font16w600ColorBlack,
-                          ),
+                        Text(
+                          settingCtl.unit.value,
+                          style: GlobalTextStyles.font16w600ColorBlack,
                         ),
                       ],
                     ),
@@ -205,66 +179,5 @@ class _WaterScreenState extends State<WaterScreen> {
         ),
       ),
     );
-  }
-
-  Row _buildCompleteGoalText() {
-    return Row(
-      children: [
-        Expanded(
-            child: AnimatedTextKit(
-          animatedTexts: [
-            TyperAnimatedText(
-              L.youHaveAchievedYourGoalToday.tr,
-              textStyle: GlobalTextStyles.font20w700ColorPrimary,
-              textAlign: TextAlign.center,
-              speed: const Duration(milliseconds: 100),
-              curve: Curves.easeOut,
-            ),
-          ],
-          isRepeatingAnimation: true,
-          totalRepeatCount: 2,
-        )),
-        Lottie.asset(
-          "assets/lotties/goal_achieved.json",
-          width: 80.w,
-          height: 80.w,
-        ),
-      ],
-    );
-  }
-
-  Positioned _buildHello() {
-    return Positioned(
-      top: 0.h,
-      left: 0.w,
-      child: Row(
-        children: [
-          Lottie.asset("assets/lotties/hello.json",
-              width: 80.w, height: 80.w, fit: BoxFit.cover),
-          10.horizontalSpace,
-          AnimatedTextKit(
-            animatedTexts: [
-              TyperAnimatedText(L.welcomeBack.tr,
-                  textStyle: GlobalTextStyles.font20w700ColorPrimary,
-                  speed: const Duration(milliseconds: 100),
-                  curve: Curves.easeOut,
-                  textAlign: TextAlign.center),
-            ],
-            isRepeatingAnimation: true,
-            totalRepeatCount: 2,
-          )
-        ],
-      ),
-    );
-  }
-
-  String convertUnitData(int ml) {
-    if (settingCtl.unit.value == "ml") {
-      return ml.toString();
-    } else if (settingCtl.unit.value == "L") {
-      return (ml.toDouble() / 1000).toStringAsFixed(1);
-    } else {
-      return (ml.toDouble() / 29.00).toStringAsFixed(1);
-    }
   }
 }

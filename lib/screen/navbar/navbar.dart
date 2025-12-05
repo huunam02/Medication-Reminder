@@ -55,14 +55,14 @@ class _NavbarScreenState extends State<NavbarScreen> {
               _selectedIndex == 0
                   ? "assets/icons/navbar11.svg"
                   : "assets/icons/navbar1.svg",
-              L.water.tr,
+              "Uống thuống",
               0,
             ),
             buildNavBarItem(
               _selectedIndex == 1
                   ? "assets/icons/navbar22.svg"
                   : "assets/icons/navbar2.svg",
-              L.statistical.tr,
+              "Lịch sử",
               1,
             ),
             buildNavBarItem(

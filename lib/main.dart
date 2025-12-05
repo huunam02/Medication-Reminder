@@ -1,4 +1,3 @@
-
 import '/screen/splash/splash.dart';
 import '/config/global_const.dart';
 import '/screen/languege/controller/languege_controller.dart';
@@ -14,7 +13,7 @@ import 'service/notification.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-
+  WidgetsFlutterBinding.ensureInitialized();
   _hideSystemUI();
   await dependecy_injection.init();
   var permissionNoti = await Permission.notification.status;

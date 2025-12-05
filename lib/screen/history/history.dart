@@ -1,14 +1,17 @@
+import 'package:flutter_svg/svg.dart';
+import 'package:medication_reminder/model/history.dart';
+import 'package:medication_reminder/screen/history/controller/history_controller.dart';
+import 'package:medication_reminder/screen/history/widget/custom_item_recent.dart';
+import 'package:medication_reminder/screen/water/controller/warter_controller.dart';
+import 'package:medication_reminder/widget/dialog_delete_record.dart';
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
 import '/lang/l.dart';
-import '/screen/history/widget/tab_view_month.dart';
-import '/screen/history/widget/tab_view_week.dart';
 import '/widget/appbar_base.dart';
 import '/widget/body_background.dart';
 import '/widget/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'widget/tab_view_day.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -19,52 +22,68 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
   final textCtr = TextEditingController();
+  final historyCtl = Get.find<HistoryController>();
+  final waterCtl = Get.find<WarterController>();
+  @override
+  void initState() {
+    super.initState();
+    historyCtl.getListHistoryDay();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BodyCustom(
       appbar: AppbarBase(
         title: GradientText(
-          L.statistical.tr,
+          L.history.tr,
           gradient: GlobalColors.linearPrimary2,
           style: GlobalTextStyles.font20w600ColorWhite,
         ),
       ),
       edgeInsetsPadding: EdgeInsets.symmetric(horizontal: 16.0),
       isShowBgImages: false,
-      child: DefaultTabController(
-        length: 3,
-        child: Column(
-          children: [
-            TabBar(
-              indicatorColor: GlobalColors.colorLastLinear,
-              indicatorSize: TabBarIndicatorSize.tab,
-              unselectedLabelStyle: GlobalTextStyles.font14w400ColorNewtral,
-              labelStyle: GlobalTextStyles.font14w600ColorWhite
-                  .copyWith(color: GlobalColors.colorLastLinear),
-              dividerHeight: 0.5,
-              dividerColor: Colors.black.withOpacity(.2),
-              indicatorWeight: 3,
-              tabs: [
-                Tab(
-                  text: L.day.tr,
+      child: Obx(
+        () => historyCtl.listHistoryDay.isNotEmpty
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(
+                  historyCtl.listHistoryDay.length,
+                  (index) {
+                    History history = historyCtl.listHistoryDay[
+                        historyCtl.listHistoryDay.length - index - 1];
+                    return CustomItemRecent(
+                      history: history,
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                            child: DialogDeleteRecord(
+                              ontap: () {
+                                historyCtl.deleteRecord(history, 0);
+                              },
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
-                Tab(text: L.week.tr),
-                Tab(
-                  text: L.month.tr,
+              )
+            : Center(
+                child: Column(
+                  children: [
+                    SvgPicture.asset("assets/icons/no_recent.svg"),
+                    SizedBox(
+                      height: 16.0,
+                    ),
+                    Text(
+                      L.noRecent.tr,
+                      style: GlobalTextStyles.font14w600ColorWhite
+                          .copyWith(color: Color(0xFF4B5563)),
+                    )
+                  ],
                 ),
-              ],
-            ),
-            const Expanded(
-              child: TabBarView(
-                children: [
-                  TabBarViewDay(),
-                  TabViewWeek(),
-                  TabViewMonth(),
-                ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }
