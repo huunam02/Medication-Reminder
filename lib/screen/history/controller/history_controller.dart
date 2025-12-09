@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import '/model/history.dart';
 import '/service/database_hepler.dart';
 import 'package:get/get.dart';
@@ -89,7 +88,7 @@ class HistoryController extends GetxController {
   void caclTotalDay() {
     int total = 0;
     for (var element in listHistoryDay) {
-      total += element.ml!;
+      total += element.amount ?? 0;
     }
     totalDay.value = total;
   }
@@ -97,7 +96,7 @@ class HistoryController extends GetxController {
   void caclTotalWeek() {
     int total = 0;
     for (var element in listHistoryWeek) {
-      total += element.ml!;
+      total += element.amount ?? 0;
     }
     totalWeek.value = total;
   }
@@ -121,7 +120,7 @@ class HistoryController extends GetxController {
   void caclTotalMonth() {
     int total = 0;
     for (var element in listHistoryMonth) {
-      total += element.ml!;
+      total += element.amount ?? 0;
     }
     totalMonth.value = total;
   }

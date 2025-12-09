@@ -5,6 +5,7 @@ class L {
   static const String youCanOnlyHaveUpTo15Reminders =
       "You can only have up to 15 reminders";
   static const String enterTitle = "Enter Title";
+  static const String enterMedicineName = "Enter Medicine Name";
   static const String thisReminderAlreadyExists =
       "This reminder already exists";
   static const String error = "Error";
@@ -41,16 +42,16 @@ class L {
   static const String submit = "Submit";
   static const String titleBoarding1 = "Your Wellness Partner";
   static const String contentBoarding1 =
-      "Simple, smart, and tailored to keep you healthy and hydrated.";
-  static const String titleBoarding2 = "Add your daily goals";
+      "Simple, smart, and tailored to keep you healthy.";
+  static const String titleBoarding2 = "Track your medication";
   static const String contentBoarding2 =
-      "Add a daily water goal to build a healthier, more balanced lifestyle.";
-  static const String titleBoarding3 = "Stay Hydrated On Time";
+      "Keep track of your daily medication intake.";
+  static const String titleBoarding3 = "Stay Healthy On Time";
   static const String contentBoarding3 =
-      "Set reminders to drink water and maintain your wellness goals.";
+      "Set reminders to take your medication and maintain your wellness goals.";
   static const String titleBoarding4 = "Review Your Progress";
   static const String contentBoarding4 =
-      "View detailed stats to analyze and improve your drinking habits.  ";
+      "View detailed stats to analyze and improve your medication habits.  ";
   static const String noInternet = "No internet";
   static const String thereIsNoInternet =
       "There is no internet connection! Please your internet connection!";
@@ -68,11 +69,11 @@ class L {
   static const String dailyGoal = "Daily goal";
   static const String dailyGoalHint = "Enter your goal...";
   static const String dailyGoalDes =
-      "Enter the amount of water to drink based on your weight, 30ml/kg (subject to change due to various factors).";
+      "Enter the amount of medication to take.";
   static const String nextReminder = "Next Reminder";
-  static const String drink = "DRINK";
-  static const String createDrink = "Create Drink";
-  static const String water = "Water";
+  static const String drink = "TAKE";
+  static const String createDrink = "Add Medication";
+  static const String water = "Medication";
   static const String history = "History";
   static const String settings = "Settings";
   static const String reminderMode = "Reminder Mode";
@@ -97,6 +98,9 @@ class L {
   static const String goal = "Goal";
   static const String unit = "Unit";
   static const String units = "Units";
+  static const String repeat = "Repeat";
+  static const String oneTime = "One time";
+  static const String daily = "Daily";
   static const String recent = "Recent";
   static const String day = "Day";
   static const String week = "Week";
@@ -107,9 +111,9 @@ class L {
   static const String cancel = "Cancel";
   static const String today = "Today";
   static const String editTime = "Edit time";
-  static const String notiTitle = "It's time to drink water!";
+  static const String notiTitle = "It's time to take your medication!";
   static const String notiDes =
-      "Drink up to stay healthy, and don't forget to update your intake in the app";
+      "Take your medication to stay healthy, and don't forget to update your intake in the app";
 
   static const String deleteRecord = "Delete Record";
   static const String areYouSureDelete =
@@ -119,7 +123,7 @@ class L {
   static const String reminder = "Reminder";
   static const String statistical = "Statistical";
   static const String dailyReminderAt = "Daily reminder at";
-  static const String recentDrinkingHistory = "Recent drinking history";
+  static const String recentDrinkingHistory = "Recent history";
 
   static const String youHaveAchievedYourGoalToday =
       "You have achieved your goal today";

@@ -3,6 +3,8 @@ class Reminder {
    String? title;
    String dateTime;
    bool isOn;
+   int? quantity;
+   String? repeatDays; // "1,2,3,4,5,6,7" for daily, or specific days
 
   // Constructor
   Reminder({
@@ -10,6 +12,8 @@ class Reminder {
     this.title,
     required this.dateTime,
    required this.isOn,
+   this.quantity,
+   this.repeatDays,
   });
 
   // Tạo một object từ Map (dùng khi lấy dữ liệu từ database)
@@ -19,6 +23,8 @@ class Reminder {
       title: map['title'] as String,
       dateTime: map['datetime'] as String,
       isOn: map['isOn'] == 1 ? true : false, // SQLite lưu bool dưới dạng 0 và 1
+      quantity: map['quantity'] as int?,
+      repeatDays: map['repeatDays'] as String?,
     );
   }
 
@@ -29,6 +35,8 @@ class Reminder {
       'title': title,
       'dateTime': dateTime,
       'isOn': isOn == true ? 1 : 0, // Chuyển bool thành 0 hoặc 1
+      'quantity': quantity,
+      'repeatDays': repeatDays,
     };
   }
 
@@ -38,12 +46,16 @@ class Reminder {
     String? title,
     String? dateTime,
     bool? isOn,
+    int? quantity,
+    String? repeatDays,
   }) {
     return Reminder(
       id: id ?? this.id,
       title: title ?? this.title,
       dateTime: dateTime ?? this.dateTime,
       isOn: isOn ?? this.isOn,
+      quantity: quantity ?? this.quantity,
+      repeatDays: repeatDays ?? this.repeatDays,
     );
   }
 

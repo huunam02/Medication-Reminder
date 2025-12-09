@@ -151,30 +151,6 @@ class PreferencesUtil {
     return _pref?.getInt("count_click_on3") ?? 0;
   }
 
-  static Future<void> setDailyGoal(int value) async {
-    await _pref?.setInt("daily_goal", value);
-  }
-
-  static int getDailyGoal() {
-    return _pref?.getInt("daily_goal") ?? 0;
-  }
-
-  static Future<void> setUnit(String value) async {
-    await _pref?.setString("unit", value);
-  }
-
-  static String getUnit() {
-    return _pref?.getString("unit") ?? 'ml';
-  }
-
-  static Future<void> setDrankWater(int value) async {
-    await _pref?.setInt("drank_water", value);
-  }
-
-  static int getDrankWater() {
-    return _pref?.getInt("drank_water") ?? 0;
-  }
-
   static Future<void> setReminderMode(String value) async {
     await _pref?.setString("reminder_mode", value);
   }

@@ -1,9 +1,9 @@
 import '/config/global_sadow.dart';
 import '/lang/l.dart';
 import '/screen/history/history.dart';
-import '/screen/notification/notification.dart';
+import '../reminder/reminder_screen.dart';
 import '/screen/setting/setting_screen.dart';
-import '/screen/water/water_screen.dart';
+import '../medicine/medicine.dart';
 import '/widget/body_background.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,6 +11,7 @@ import '/config/global_color.dart';
 import '/config/global_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '/util/preferences_util.dart';
 
 class NavbarScreen extends StatefulWidget {
   const NavbarScreen({super.key});
@@ -23,11 +24,17 @@ class _NavbarScreenState extends State<NavbarScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    WaterScreen(),
+    MedicineScreen(),
     HistoryScreen(),
-    NotificationScreen(),
+    ReminderScreen(),
     SettingScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    PreferencesUtil.putFirstTime(false);
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -52,10 +59,8 @@ class _NavbarScreenState extends State<NavbarScreen> {
         child: Row(
           children: [
             buildNavBarItem(
-              _selectedIndex == 0
-                  ? "assets/icons/navbar11.svg"
-                  : "assets/icons/navbar1.svg",
-              "Uống thuống",
+              Icons.medication,
+              "Trang chủ",
               0,
             ),
             buildNavBarItem(
@@ -86,7 +91,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
     );
   }
 
-  Widget buildNavBarItem(String icon, String label, int index) {
+  Widget buildNavBarItem(dynamic icon, String label, int index) {
     return Expanded(
       child: GestureDetector(
         onTap: () {
@@ -97,12 +102,20 @@ class _NavbarScreenState extends State<NavbarScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset(
-                icon,
-                height: 24,
-                width: 24,
-                fit: BoxFit.cover,
-              ),
+              icon is String
+                  ? SvgPicture.asset(
+                      icon,
+                      height: 24,
+                      width: 24,
+                      fit: BoxFit.cover,
+                    )
+                  : Icon(
+                      icon,
+                      size: 24,
+                      color: _selectedIndex == index
+                          ? GlobalColors.colorLastLinear
+                          : GlobalColors.newtral,
+                    ),
               const SizedBox(
                 height: 4.0,
               ),

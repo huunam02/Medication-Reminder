@@ -14,11 +14,13 @@ class BottomsheetTimeEditStandard extends StatefulWidget {
     required this.defaultHour,
     required this.defaultMinute,
     required this.onClickSave,
+    required this.onClickDelete,
     required this.reminder,
   });
   final int defaultHour;
   final int defaultMinute;
-  final Function(String title) onClickSave;
+  final Function(String title, String quantity, String repeatDays) onClickSave;
+  final VoidCallback onClickDelete;
   final ValueChanged<int> onChangeHour;
   final ValueChanged<int> onChangeMinute;
   final Reminder reminder;
@@ -34,10 +36,13 @@ class __BottomsheetTimeEditStandardState
   int minute = 0;
   final int totalHours = 24;
   final int totalMinutes = 60;
+  List<int> selectedDays = [];
+  bool isRepeat = true;
 
   late FixedExtentScrollController hourController;
   late FixedExtentScrollController minuteController;
   final _titleEdittingController = TextEditingController();
+  final _quantityEdittingController = TextEditingController();
 
   @override
   void initState() {
@@ -53,6 +58,19 @@ class __BottomsheetTimeEditStandardState
   void load() {
     setState(() {
       _titleEdittingController.text = widget.reminder.title ?? "";
+      _quantityEdittingController.text =
+          widget.reminder.quantity?.toString() ?? "";
+      if (widget.reminder.repeatDays != null &&
+          widget.reminder.repeatDays!.isNotEmpty) {
+        selectedDays = widget.reminder.repeatDays!
+            .split(",")
+            .map((e) => int.parse(e))
+            .toList();
+        isRepeat = true;
+      } else {
+        selectedDays = [];
+        isRepeat = false;
+      }
     });
   }
 
@@ -73,13 +91,22 @@ class __BottomsheetTimeEditStandardState
         color: GlobalColors.container1,
         borderRadius: BorderRadius.circular(8.0),
       ),
-      height: h * 0.6,
+      height: h * 0.75,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            L.editTime.tr,
-            style: GlobalTextStyles.font16w600ColorBlack,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                L.editTime.tr,
+                style: GlobalTextStyles.font16w600ColorBlack,
+              ),
+              GestureDetector(
+                onTap: widget.onClickDelete,
+                child: const Icon(Icons.delete, color: Colors.red),
+              ),
+            ],
           ),
           16.verticalSpace,
           Container(
@@ -102,7 +129,7 @@ class __BottomsheetTimeEditStandardState
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 16.w,
                   ),
-                  hintText: L.enterTitle.tr,
+                  hintText: L.enterMedicineName.tr,
                   hintStyle: GlobalTextStyles.font14w600ColorBlack
                       .copyWith(color: const Color(0xFF4B5563)),
                   border: InputBorder.none,
@@ -110,6 +137,63 @@ class __BottomsheetTimeEditStandardState
               ),
             ),
           ),
+          16.verticalSpace,
+          Container(
+            height: 60.h,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade200,
+              borderRadius: BorderRadius.circular(24.0),
+            ),
+            child: Center(
+              child: TextField(
+                keyboardType: TextInputType.number,
+                controller: _quantityEdittingController,
+                style: GlobalTextStyles.font14w600ColorBlack,
+                maxLength: 5,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  isDense: true,
+                  counterText: "",
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                  ),
+                  hintText: "Số lượng (viên)",
+                  hintStyle: GlobalTextStyles.font14w600ColorBlack
+                      .copyWith(color: const Color(0xFF4B5563)),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ),
+          10.verticalSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                L.repeat.tr,
+                style: GlobalTextStyles.font16w600ColorBlack,
+              ),
+              Switch(
+                value: isRepeat,
+                onChanged: (value) {
+                  setState(() {
+                    isRepeat = value;
+                    if (isRepeat) {
+                      selectedDays = [1, 2, 3, 4, 5, 6, 7];
+                    } else {
+                      selectedDays = [];
+                    }
+                  });
+                },
+                activeColor: GlobalColors.colorLastLinear,
+              ),
+            ],
+          ),
+          if (isRepeat) ...[
+            10.verticalSpace,
+            _buildDaySelector(),
+          ],
           10.verticalSpace,
           Expanded(
             child: Stack(
@@ -181,8 +265,20 @@ class __BottomsheetTimeEditStandardState
               Expanded(
                 child: GestureDetector(
                   onTap: () {
+                    if (_titleEdittingController.text.isEmpty) {
+                      Get.snackbar("Lỗi", "Vui lòng nhập tên thuốc",
+                          backgroundColor: Colors.white);
+                      return;
+                    }
+                    if (_quantityEdittingController.text.isEmpty) {
+                      Get.snackbar("Lỗi", "Vui lòng nhập số lượng",
+                          backgroundColor: Colors.white);
+                      return;
+                    }
                     widget.onClickSave(
                       _titleEdittingController.text.trim(),
+                      _quantityEdittingController.text.trim(),
+                      selectedDays.join(","),
                     );
                   },
                   child: Container(
@@ -249,6 +345,51 @@ class __BottomsheetTimeEditStandardState
           childCount: totalItems * 1000,
         ),
       ),
+    );
+  }
+
+  Widget _buildDaySelector() {
+    final days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(7, (index) {
+        final dayIndex = index + 1;
+        final isSelected = selectedDays.contains(dayIndex);
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              if (isSelected) {
+                if (selectedDays.length > 1) {
+                  selectedDays.remove(dayIndex);
+                }
+              } else {
+                selectedDays.add(dayIndex);
+              }
+              selectedDays.sort();
+            });
+          },
+          child: Container(
+            width: 36.w,
+            height: 36.w,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isSelected ? GlobalColors.colorLastLinear : Colors.white,
+              border: Border.all(
+                color: isSelected
+                    ? GlobalColors.colorLastLinear
+                    : Colors.grey.shade300,
+              ),
+            ),
+            child: Text(
+              days[index],
+              style: isSelected
+                  ? GlobalTextStyles.font14w600ColorWhite
+                  : GlobalTextStyles.font14w600ColorBlack,
+            ),
+          ),
+        );
+      }),
     );
   }
 }

@@ -21,9 +21,43 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 4,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute("ALTER TABLE Reminder ADD COLUMN quantity INTEGER");
+    }
+    if (oldVersion < 3) {
+      await db.execute("ALTER TABLE Reminder ADD COLUMN repeatDays TEXT");
+    }
+    if (oldVersion < 4) {
+      // Redesign History table
+      await db.execute("DROP TABLE IF EXISTS History");
+      await db.execute("""
+        CREATE TABLE History (
+         id INTEGER PRIMARY KEY AUTOINCREMENT,
+         reminderId INTEGER,
+         title TEXT,
+         amount INTEGER,
+         datetime TEXT,
+         unit TEXT
+        )
+      """);
+      
+      // Ensure Reminder table is clean or has correct schema if needed
+      // For now, we just keep Reminder as is, but user asked for "no reminders" on first use.
+      // If the user wants to wipe data on upgrade to "reset" the app state:
+      // await db.execute("DELETE FROM Reminder"); 
+      // But usually we don't wipe user data on upgrade unless requested. 
+      // The user said "default first time use app will have no reminders". 
+      // This usually refers to *new* installs. Existing installs might want to keep data.
+      // However, since this is dev, I will not wipe data here to be safe, 
+      // but I will ensure _onCreate creates the new History schema.
+    }
   }
 
   // Tạo bảng
@@ -31,8 +65,11 @@ class DatabaseHelper {
     await db.execute("""
       CREATE TABLE IF NOT EXISTS History (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
-       ml INTEGER,
-       datetime TEXT,unit TEXT
+       reminderId INTEGER,
+       title TEXT,
+       amount INTEGER,
+       datetime TEXT,
+       unit TEXT
       )
     """);
     await db.execute("""
@@ -40,7 +77,9 @@ class DatabaseHelper {
        id INTEGER PRIMARY KEY AUTOINCREMENT,
        title TEXT,
        datetime TEXT,
-       isOn INTEGER
+       isOn INTEGER,
+       quantity INTEGER,
+       repeatDays TEXT
       )
     """);
   }

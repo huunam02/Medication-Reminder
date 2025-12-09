@@ -1,6 +1,5 @@
 //import 'package:amazic_ads_flutter/admob_ads_flutter.dart';
 import 'dart:io';
-import '/screen/daily_goal/daily_goal_screen.dart';
 import '/screen/navbar/navbar.dart';
 import '/screen/permission/permission.dart';
 import '/widget/body_background.dart';
@@ -120,7 +119,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         style: GlobalTextStyles.font16w600ColorBlack),
                   ),
                   12.verticalSpace,
-
                 ],
               ),
             ),
@@ -132,14 +130,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void navigate() {
     if (Platform.isIOS && PreferencesUtil.getFirstTime()) {
-      Get.offAll(() => const DailyGoalScreen());
+      Get.offAll(() => const NavbarScreen());
       return;
     }
     if (PreferencesUtil.getFirstTime()) {
       if (sdk >= 33) {
         Get.off(() => const PermissionScreen());
       } else {
-        Get.offAll(() => const DailyGoalScreen());
+        Get.offAll(() => const NavbarScreen());
       }
     } else {
       Get.offAll(() => const NavbarScreen());

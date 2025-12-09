@@ -2,7 +2,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:medication_reminder/model/history.dart';
 import 'package:medication_reminder/screen/history/controller/history_controller.dart';
 import 'package:medication_reminder/screen/history/widget/custom_item_recent.dart';
-import 'package:medication_reminder/screen/water/controller/warter_controller.dart';
 import 'package:medication_reminder/widget/dialog_delete_record.dart';
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
@@ -23,7 +22,6 @@ class HistoryScreen extends StatefulWidget {
 class _HistoryScreenState extends State<HistoryScreen> {
   final textCtr = TextEditingController();
   final historyCtl = Get.find<HistoryController>();
-  final waterCtl = Get.find<WarterController>();
   @override
   void initState() {
     super.initState();
@@ -44,31 +42,33 @@ class _HistoryScreenState extends State<HistoryScreen> {
       isShowBgImages: false,
       child: Obx(
         () => historyCtl.listHistoryDay.isNotEmpty
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(
-                  historyCtl.listHistoryDay.length,
-                  (index) {
-                    History history = historyCtl.listHistoryDay[
-                        historyCtl.listHistoryDay.length - index - 1];
-                    return CustomItemRecent(
-                      history: history,
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => Dialog(
-                            child: DialogDeleteRecord(
-                              ontap: () {
-                                historyCtl.deleteRecord(history, 0);
-                              },
+            ? SingleChildScrollView(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(
+                    historyCtl.listHistoryDay.length,
+                    (index) {
+                      History history = historyCtl.listHistoryDay[
+                          historyCtl.listHistoryDay.length - index - 1];
+                      return CustomItemRecent(
+                        history: history,
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: DialogDeleteRecord(
+                                ontap: () {
+                                  historyCtl.deleteRecord(history, 0);
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    );
-                  },
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
-              )
+            )
             : Center(
                 child: Column(
                   children: [

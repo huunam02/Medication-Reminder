@@ -6,12 +6,12 @@ import '/widget/gradient_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
-import '/screen/daily_goal/daily_goal_screen.dart';
 import '/widget/body_background.dart';
 import '/screen/permission/permission_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import '/screen/navbar/navbar.dart';
 
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
@@ -95,20 +95,25 @@ class PermissionScreenState extends LifecycleState<PermissionScreen> {
               ],
             ),
           ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: GestureDetector(
-              onTap: () {
-                Get.offAll(const DailyGoalScreen());
-              },
-              child: Center(
-                child: Text(L.continuee.tr,
-                    style: GlobalTextStyles.font18w600ColorBlack),
+          Spacer(),
+          GestureDetector(
+            onTap: () {
+              Get.offAll(() => const NavbarScreen());
+            },
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 30, left: 16, right: 16),
+              height: 50,
+              decoration: BoxDecoration(
+                gradient: GlobalColors.linearPrimary2,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                L.continuee.tr,
+                style: GlobalTextStyles.font16w600ColorWhite,
               ),
             ),
           ),
-          Spacer()
         ],
       ),
     );

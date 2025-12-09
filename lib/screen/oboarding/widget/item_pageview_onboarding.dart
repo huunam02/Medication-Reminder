@@ -1,6 +1,4 @@
-import '/config/global_text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ItemPageviewOnboarding extends StatefulWidget {
   const ItemPageviewOnboarding(

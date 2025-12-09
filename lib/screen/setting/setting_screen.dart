@@ -1,6 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '/screen/water/controller/warter_controller.dart';
-import '/widget/dialog_daily_goal.dart';
+import '../medicine/controller/medicine_controller.dart';
 import '/widget/gradient_text.dart';
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
@@ -25,7 +24,7 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   final langCtl = Get.find<LanguageController>();
   final settingCtl = Get.find<SettingController>();
-  final waterCtl = Get.find<WarterController>();
+  final medicineCtl = Get.find<MedicineController>();
   final textCtl = TextEditingController();
   bool isClicking = false;
 
@@ -62,123 +61,6 @@ class _SettingScreenState extends State<SettingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              margin: const EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: GlobalColors.container1,
-                  borderRadius: BorderRadius.circular(12)),
-              child: Column(
-                children: [
-                  24.verticalSpace,
-                  GestureDetector(
-                    onTap: () => checkSpam(() {
-                      showDialog(
-                        context: context,
-                        builder: (context) => Dialog(
-                          insetPadding: EdgeInsets.symmetric(horizontal: 16.w),
-                          child: DialogDailyGoal(
-                            ontap: () {
-                              settingCtl.setDailyGoal(textCtl.text);
-                              textCtl.clear();
-                            },
-                            controller: textCtl,
-                            unit: settingCtl.unit.value,
-                          ),
-                        ),
-                      );
-                    }),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset("assets/icons/daily_setting.svg",
-                            height: 24.0, width: 24.0),
-                        16.horizontalSpace,
-                        Text(
-                          L.dailyGoal.tr,
-                          style: GlobalTextStyles.font14w400ColorBlack
-                              .copyWith(fontWeight: FontWeight.w500),
-                        ),
-                        const Spacer(),
-                        Obx(
-                          () => Text(
-                            convertUnitData(waterCtl.dailyGoal.value),
-                            style: GlobalTextStyles.font14w400ColorBlack
-                                .copyWith(
-                                    color: GlobalColors.colorLastLinear,
-                                    fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        Obx(
-                          () => Text(
-                            " ${settingCtl.unit.value}",
-                            style: GlobalTextStyles.font14w400ColorBlack
-                                .copyWith(
-                                    color: GlobalColors.colorLastLinear,
-                                    fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        8.horizontalSpace,
-                        SvgPicture.asset("assets/icons/ic_next_setting.svg",
-                            height: 24.0, width: 24.0),
-                      ],
-                    ),
-                  ),
-                  24.verticalSpace,
-                  Row(
-                    children: [
-                      SvgPicture.asset("assets/icons/unit_setting.svg",
-                          height: 24.0, width: 24.0),
-                      const SizedBox(
-                        width: 16.0,
-                      ),
-                      Text(
-                        L.units.tr,
-                        style: GlobalTextStyles.font14w400ColorBlack
-                            .copyWith(fontWeight: FontWeight.w500),
-                      ),
-                      const Spacer(),
-                      PopupMenuButton<String>(
-                        padding: EdgeInsets.all(16),
-                        color: GlobalColors.container1,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0)),
-                        onSelected: (String value) {
-                          settingCtl.changeUnit(value);
-                        },
-                        itemBuilder: (BuildContext context) => [
-                          _buildPopupMenuItem("ml"),
-                          _buildPopupMenuItem("L"),
-                          _buildPopupMenuItem("fl oz"),
-                        ],
-                        child: Row(
-                          children: [
-                            Obx(
-                              () => Text(
-                                settingCtl.unit.value,
-                                style: GlobalTextStyles.font14w400ColorBlack
-                                    .copyWith(
-                                        color: GlobalColors.colorLastLinear),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 8.0,
-                            ),
-                            SvgPicture.asset(
-                                "assets/icons/unit_setting_down.svg",
-                                height: 24.0,
-                                width: 24.0),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                ],
-              ),
-            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               margin: const EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
@@ -274,7 +156,7 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 16,
             ),
             Text(
-              "Drink Water Reminder",
+              "Medication Reminder",
               style: GlobalTextStyles.font16w600ColorBlack,
             ),
             SizedBox(
@@ -286,62 +168,6 @@ class _SettingScreenState extends State<SettingScreen> {
                 style: GlobalTextStyles.font12w400ColorNewtral,
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  String convertUnitData(int ml) {
-    if (settingCtl.unit.value == "ml") {
-      return ml.toString();
-    } else if (settingCtl.unit.value == "L") {
-      return (ml.toDouble() / 1000).toStringAsFixed(1);
-    } else {
-      return (ml.toDouble() / 29.00).toStringAsFixed(1);
-    }
-  }
-
-  PopupMenuItem<String> _buildPopupMenuItem(String value) {
-    return PopupMenuItem<String>(
-      value: value,
-      child: Container(
-        width: 80,
-        decoration: BoxDecoration(
-            border: Border(
-                bottom: value != "fl oz"
-                    ? BorderSide(color: GlobalColors.newtral)
-                    : BorderSide.none)),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(value, style: GlobalTextStyles.font16w600ColorBlack),
-                SizedBox(
-                  width: 8.0,
-                ),
-                Obx(
-                  () => settingCtl.unit.value == value
-                      ? SvgPicture.asset(
-                          "assets/icons/done.svg",
-                          width: 24,
-                          height: 24,
-                        )
-                      : SizedBox(),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            value != "fl oz"
-                ? Container(
-                    width: 80,
-                    color: Colors.grey.withOpacity(.4),
-                    height: 0.1,
-                  )
-                : SizedBox.shrink()
           ],
         ),
       ),

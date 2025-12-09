@@ -30,8 +30,13 @@ class CustomItemRecent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "${convertUnitData(history.ml!, history.unit!)}${history.unit!}",
+                  history.title ?? "Unknown",
                   style: GlobalTextStyles.font16w600ColorBlack,
+                ),
+                SizedBox(height: 4.0),
+                Text(
+                  "${convertUnitData(history.amount ?? 0, history.unit!)} ${history.unit!}",
+                  style: GlobalTextStyles.font14w400ColorBlack,
                 ),
                 SizedBox(
                   height: 4.0,
@@ -51,13 +56,7 @@ class CustomItemRecent extends StatelessWidget {
     );
   }
 
-  String convertUnitData(int ml, String unit) {
-    if (unit == "ml") {
-      return ml.toString();
-    } else if (unit == "L") {
-      return (ml.toDouble() / 1000).toStringAsFixed(1);
-    } else {
-      return (ml.toDouble() / 29.00).toStringAsFixed(1);
-    }
+  String convertUnitData(int amount, String unit) {
+    return amount.toString();
   }
 }

@@ -1,8 +1,8 @@
+import '../screen/reminder/controller/reminder_controller.dart';
+
 import '/lang/l.dart';
-import '/screen/interval_reminder/controller/interval_reminder_controller.dart';
 import '/screen/navbar/navbar.dart';
-import '/screen/standard_reminder/controller/standard_reminder_controller.dart';
-import '/screen/water/controller/warter_controller.dart';
+import '../screen/medicine/controller/medicine_controller.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -14,15 +14,12 @@ class NotificationService {
 
   static Future<void> onDidReceiveNotification(
       NotificationResponse notificationResponse) async {
-    final waterCtl = Get.find<WarterController>();
-    waterCtl.checkNextReminder();
-    if (waterCtl.reminderMode.value == "interval") {
-      final intervalCtl = Get.find<IntervalReminderController>();
-      intervalCtl.checkNextReminder();
-    } else {
-      final standardCtl = Get.find<StandardReminderController>();
-      standardCtl.checkNextReminder();
-    }
+    final medicineCtl = Get.find<MedicineController>();
+    medicineCtl.checkNextReminder();
+
+    final standardCtl = Get.find<ReminderController>();
+    standardCtl.checkNextReminder();
+
     Get.offAll(NavbarScreen());
   }
 
@@ -45,12 +42,22 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse: onDidReceiveNotification,
         onDidReceiveBackgroundNotificationResponse: onDidReceiveNotification);
+
+    final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
+        flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>();
+
+    await androidImplementation?.requestNotificationsPermission();
+    await androidImplementation?.requestExactAlarmsPermission();
   }
 
   static Future<void> scheduleDailyNotification(int id, TimeOfDay time) async {
     final now = DateTime.now();
-    final scheduledDate =
+    var scheduledDate =
         DateTime(now.year, now.month, now.day, time.hour, time.minute);
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(const Duration(days: 1));
+    }
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
       id,
@@ -73,9 +80,49 @@ class NotificationService {
     debugPrint("Set notification success at $time and id: $id");
   }
 
+  static Future<void> scheduleWeeklyNotification(
+      int id, TimeOfDay time, List<int> days) async {
+    for (int day in days) {
+      // 1 = Mon, 7 = Sun
+      final now = DateTime.now();
+      var scheduledDate =
+          DateTime(now.year, now.month, now.day, time.hour, time.minute);
+
+      // Find the next occurrence of this day
+      while (scheduledDate.weekday != day || scheduledDate.isBefore(now)) {
+        scheduledDate = scheduledDate.add(const Duration(days: 1));
+      }
+
+      await flutterLocalNotificationsPlugin.zonedSchedule(
+        id * 10 + day,
+        L.notiTitle.tr,
+        L.notiDes.tr,
+        tz.TZDateTime.from(scheduledDate, tz.local),
+        const NotificationDetails(
+          iOS: DarwinNotificationDetails(),
+          android: AndroidNotificationDetails(
+            "REMINDER",
+            'Reminder Notifications',
+            importance: Importance.high,
+            priority: Priority.high,
+            icon: '@mipmap/ic_launcher',
+          ),
+        ),
+        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      );
+      debugPrint(
+          "Set weekly notification success at $time, day $day, id: ${id * 10 + day}");
+    }
+  }
+
   static Future<void> cancelNotification(int id) async {
     debugPrint("Destroy notification succes id: $id");
     await flutterLocalNotificationsPlugin.cancel(id);
+    // Cancel potential weekly notifications
+    for (int i = 1; i <= 7; i++) {
+      await flutterLocalNotificationsPlugin.cancel(id * 10 + i);
+    }
     await flutterLocalNotificationsPlugin.pendingNotificationRequests();
   }
 

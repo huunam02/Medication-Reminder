@@ -9,16 +9,19 @@ class BodyCustom extends StatelessWidget {
       required this.isShowBgImages,
       this.appbar,
       this.bottomNavigationBar,
-      this.resizeToAvoidBottomInset});
+      this.resizeToAvoidBottomInset,
+      this.floatingActionButton});
   final Widget child;
   final EdgeInsets? edgeInsetsPadding;
   final bool isShowBgImages;
   final PreferredSizeWidget? appbar;
   final Widget? bottomNavigationBar;
   final bool? resizeToAvoidBottomInset;
+  final Widget? floatingActionButton;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: floatingActionButton,
       bottomNavigationBar: bottomNavigationBar,
       appBar: appbar,
       backgroundColor: isShowBgImages ? Colors.transparent : GlobalColors.bg1,

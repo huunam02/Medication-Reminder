@@ -1,10 +1,8 @@
-import '/screen/create_drink/controller/create_drink_controller.dart';
 import '/screen/history/controller/history_controller.dart';
-import '/screen/interval_reminder/controller/interval_reminder_controller.dart';
 import '/screen/permission/permission_controller.dart';
 import '/screen/setting/controller/setting_controller.dart';
-import '/screen/standard_reminder/controller/standard_reminder_controller.dart';
-import '/screen/water/controller/warter_controller.dart';
+import 'screen/reminder/controller/reminder_controller.dart';
+import 'screen/medicine/controller/medicine_controller.dart';
 import '/screen/languege/controller/languege_controller.dart';
 import '/screen/oboarding/controller/onboarding_controller.dart';
 import '/util/preferences_util.dart';
@@ -22,21 +20,14 @@ Future<void> init() async {
   final permissionController = PermissionController();
   Get.lazyPut(() => permissionController, fenix: true);
 
-  final waterController = WarterController();
-  Get.lazyPut(() => waterController, fenix: true);
+  final medicineController = MedicineController();
+  Get.lazyPut(() => medicineController, fenix: true);
 
-  final standardReminderController = StandardReminderController();
-  Get.lazyPut(() => standardReminderController, fenix: true);
-
-  final intervalReminderController = IntervalReminderController();
-  Get.lazyPut(() => intervalReminderController, fenix: true);
-
+  final reminderController = ReminderController();
+  Get.lazyPut(() => reminderController, fenix: true);
   final settingController = SettingController();
   Get.lazyPut(() => settingController, fenix: true);
 
   final historyController = HistoryController();
   Get.lazyPut(() => historyController, fenix: true);
-
-  final createDrinkController = CreateDrinkController();
-  Get.lazyPut(() => createDrinkController, fenix: true);
 }

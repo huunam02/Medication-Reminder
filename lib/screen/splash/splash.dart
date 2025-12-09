@@ -1,11 +1,7 @@
 import 'dart:async';
-import '/lang/l.dart';
-import '/util/ads_helper.dart';
-
 import '/screen/navbar/navbar.dart';
 import '/util/preferences_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '/config/global_color.dart';
 import 'package:flutter/material.dart';
 import '/config/global_text_style.dart';
 import '/screen/languege/language.dart';
@@ -43,7 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
     return PopScope(
       canPop: false,
       child: BodyCustom(
@@ -73,37 +68,11 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       textAlign: TextAlign.center,
-                      "Drink Water Reminder",
+                      "Medication Reminder",
                       style: GlobalTextStyles.font32w700ColorWhite
                           .copyWith(fontSize: 24, color: Colors.black),
                     ),
                   ),
-                ],
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: w * 0.66,
-                    alignment: Alignment.center,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(63.0),
-                      child: LinearProgressIndicator(
-                        backgroundColor: Colors.grey,
-                        color: GlobalColors.linearPrimary2.colors.last,
-                      ),
-                    ),
-                  ),
-                  16.verticalSpace,
-                  Text(
-                    L.thisActionMayContainAdvertising.tr,
-                    style: GlobalTextStyles.font14w600ColorBlackOp60,
-                  ),
-                  16.verticalSpace,
                 ],
               ),
             ),
