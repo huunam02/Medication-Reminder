@@ -43,7 +43,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       child: Obx(
         () => historyCtl.listHistoryDay.isNotEmpty
             ? SingleChildScrollView(
-              child: Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(
                     historyCtl.listHistoryDay.length,
@@ -68,9 +68,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     },
                   ),
                 ),
-            )
+              )
             : Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset("assets/icons/no_recent.svg"),
                     SizedBox(
@@ -78,8 +79,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     ),
                     Text(
                       L.noRecent.tr,
-                      style: GlobalTextStyles.font14w600ColorWhite
-                          .copyWith(color: Color(0xFF4B5563)),
+                      style: GlobalTextStyles.font14w600ColorWhite.copyWith(
+                        color: Color(0xFF4B5563),
+                      ),
                     )
                   ],
                 ),

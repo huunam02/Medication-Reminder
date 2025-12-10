@@ -63,7 +63,9 @@ class _MedicineScreenState extends State<MedicineScreen> {
                   Obx(
                     () {
                       bool isTime = false;
-                      if (reminder.nextReminderObj.value != null) {
+                      if (reminder.nextReminderObj.value != null &&
+                          !reminder.takenReminderIds
+                              .contains(reminder.nextReminderObj.value!.id)) {
                         DateTime now = DateTime.now();
                         DateTime time = DateTime.parse(
                             reminder.nextReminderObj.value!.dateTime);

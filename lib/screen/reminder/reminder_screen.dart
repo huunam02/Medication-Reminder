@@ -56,7 +56,6 @@ class _ReminderScreenState extends State<ReminderScreen> {
         child: Column(
           children: [
             const NextReminderCountdown(),
-            _buildDivider(),
             Expanded(
                 child: reminderCtl.isLoad.value == false
                     ? reminderCtl.listReminder.isEmpty
