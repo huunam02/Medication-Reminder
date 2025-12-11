@@ -60,7 +60,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
           children: [
             buildNavBarItem(
               Icons.medication,
-              "Trang chủ",
+              "Uống thuốc",
               0,
             ),
             buildNavBarItem(

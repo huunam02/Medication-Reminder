@@ -5,6 +5,7 @@ Map<String, String> esLanguage = {
   L.youCanOnlyHaveUpTo10Reminders: "Solo puedes tener hasta 10 recordatorios",
   L.youCanOnlyHaveUpTo15Reminders: "Solo puedes tener hasta 15 recordatorios",
   L.enterTitle: "Introducir título",
+  L.enterMedicineName: "Introducir nombre del medicamento",
   L.thisReminderAlreadyExists: "Este recordatorio ya existe",
   L.error: "Error",
   L.unlockFeature: "Desbloquear",
@@ -25,7 +26,7 @@ Map<String, String> esLanguage = {
 
   L.thisActionMayContainAdvertising: "Esta acción puede contener publicidad.",
 
-  //
+//
   L.permission: "Permiso",
   L.allowAccess: "Permitir acceso",
   L.permissionDesc:
@@ -33,8 +34,7 @@ Map<String, String> esLanguage = {
   L.reminder: "Recordatorio",
   L.statistical: "Estadísticas",
   L.dailyReminderAt: "Recordatorio diario a las",
-  L.recentDrinkingHistory: "Historial de bebida reciente",
-  L.splashDes: "Esta acción puede contener publicidad",
+  L.recentDrinkingHistory: "Historial de medicación reciente",
   L.setting: "Configuración",
   L.language: "Idioma",
   L.rate: "Calificar",
@@ -46,16 +46,16 @@ Map<String, String> esLanguage = {
   L.submit: "Enviar",
   L.titleBoarding1: "Tu compañero de bienestar",
   L.contentBoarding1:
-      "Simple, inteligente y adaptado para mantenerte saludable e hidratado.",
-  L.titleBoarding2: "Establece tus objetivos diarios",
+      "Simple, inteligente y adaptado para mantenerte saludable y al día con tu medicación.",
+  L.titleBoarding2: "Añade tu horario de medicación",
   L.contentBoarding2:
-      "Agrega un objetivo diario de agua para llevar un estilo de vida más saludable y equilibrado.",
-  L.titleBoarding3: "Mantente hidratado a tiempo",
+      "Añade un horario diario de medicación para llevar un estilo de vida más saludable y equilibrado.",
+  L.titleBoarding3: "Toma tu medicación a tiempo",
   L.contentBoarding3:
-      "Configura recordatorios para beber agua y mantener tus objetivos de bienestar.",
+      "Configura recordatorios para tomar tu medicación y mantener tus objetivos de bienestar.",
   L.titleBoarding4: "Revisa tu progreso",
   L.contentBoarding4:
-      "Consulta estadísticas detalladas para analizar y mejorar tus hábitos de bebida.",
+      "Consulta estadísticas detalladas para analizar y mejorar tu adherencia a la medicación.",
   L.noInternet: "Sin internet",
   L.thereIsNoInternet:
       "¡No hay conexión a internet! Verifica tu conexión a internet.",
@@ -67,16 +67,15 @@ Map<String, String> esLanguage = {
   L.wellcome: "Bienvenido",
   L.wellcomeBack: "Bienvenido de nuevo",
   L.continuee: "Continuar",
-  L.settingtitle: "Configuraciones",
   L.save: "Guardar",
   L.dailyGoal: "Meta diaria",
   L.dailyGoalHint: "Introduce tu objetivo...",
   L.dailyGoalDes:
-      "Introduce la cantidad de agua a beber según tu peso, 30ml/kg (puede variar según diversos factores).",
+      "Introduce tu objetivo diario de medicación para asegurar tu salud.",
   L.nextReminder: "Próximo recordatorio",
-  L.drink: "BEBER",
-  L.createDrink: "Crear bebida",
-  L.water: "Agua",
+  L.drink: "TOMAR MEDICACIÓN",
+  L.createDrink: "Añadir medicación",
+  L.water: "Medicación",
   L.history: "Historial",
   L.settings: "Configuraciones",
   L.reminderMode: "Modo de recordatorio",
@@ -100,6 +99,9 @@ Map<String, String> esLanguage = {
   L.goal: "Meta",
   L.unit: "Unidad",
   L.units: "Unidades",
+  L.repeat: "Repetir",
+  L.oneTime: "Una vez",
+  L.daily: "Diario",
   L.recent: "Reciente",
   L.day: "Día",
   L.week: "Semana",
@@ -110,9 +112,9 @@ Map<String, String> esLanguage = {
   L.cancel: "Cancelar",
   L.today: "Hoy",
   L.editTime: "Editar hora",
-  L.notiTitle: "¡Es hora de beber agua!",
+  L.notiTitle: "¡Es hora de tomar tu medicación!",
   L.notiDes:
-      "Bebe agua para mantenerte saludable y no olvides actualizar tu consumo en la aplicación.",
+      "Toma tu medicación para mantenerte saludable y no olvides actualizar tu consumo en la aplicación.",
   L.deleteRecord: "Eliminar registro",
   L.areYouSureDelete:
       "¿Estás seguro de que deseas eliminar este registro de tu historial?",

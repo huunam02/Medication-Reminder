@@ -33,7 +33,6 @@ Map<String, String> enLanguage = {
   L.statistical: "Statistical",
   L.dailyReminderAt: "Daily reminder at",
   L.recentDrinkingHistory: "Recent medication history",
-  L.splashDes: "This action may contain advertising",
   L.setting: "Setting",
   L.language: "Language",
   L.rate: "Rate",
@@ -67,7 +66,6 @@ Map<String, String> enLanguage = {
   L.wellcome: "Welcome",
   L.wellcomeBack: "Welcome Back",
   L.continuee: "Continue",
-  L.settingtitle: "Settings",
   L.save: "Save",
   L.dailyGoal: "Daily goal",
   L.dailyGoalHint: "Enter your goal...",
@@ -113,9 +111,9 @@ Map<String, String> enLanguage = {
   L.cancel: "Cancel",
   L.today: "Today",
   L.editTime: "Edit time",
-  L.notiTitle: "It's time to drink water!",
+  L.notiTitle: "It's time to take your medication!",
   L.notiDes:
-      "Drink up to stay healthy, and don't forget to update your intake in the app",
+      "Take your medication to stay healthy, and don't forget to update your intake in the app",
   L.deleteRecord: "Delete Record",
   L.areYouSureDelete:
       "Are you sure you want to delete this record from your history?",
