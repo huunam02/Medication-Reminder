@@ -40,19 +40,18 @@ class GlobalColors {
       Color(0xFF00977C), // Màu #00977C
     ],
   );
-  static LinearGradient linearPrimary2 = LinearGradient(
-    begin: Alignment(0.6, -1.0), // tương đương khoảng 156.44 độ
-    end: Alignment(-1.0, 1.0),
+  static LinearGradient linearPrimary2 = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
     colors: [
-      Color(0xFF4B8CE7), // Màu bắt đầu
-      Color(0xFF186EE7), // Màu kết thúc
+      Color(0xFF00E4BE),
+      Color(0xFF00977C),
     ],
-    stops: [0.0, 0.6518], // Tương ứng với 0% và 65.18%
   );
   static Color bg1 = Color(0xFFF0F0F0);
   static Color color2 = const Color(0xFF3E3F42);
   static Color newtral = const Color(0xFF6B7280);
-  static Color colorLastLinear = const Color(0xFF186EE7);
+  static Color colorLastLinear = const Color(0xFF00977C);
   static Color container1 = Colors.white;
   static Color container2 = const Color(0xFF21374A);
 }

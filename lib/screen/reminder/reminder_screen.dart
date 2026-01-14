@@ -166,14 +166,6 @@ class _ReminderScreenState extends State<ReminderScreen> {
     );
   }
 
-  Container _buildDivider() {
-    return Container(
-      height: 0.5,
-      width: double.infinity,
-      color: Colors.grey,
-    );
-  }
-
   Container _buildItem(
       DateTime dateTime, BuildContext context, Reminder reminder) {
     return Container(
