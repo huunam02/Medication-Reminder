@@ -1,5 +1,6 @@
 import '/screen/splash/splash.dart';
 import '/config/global_const.dart';
+import '/lang/l.dart';
 import '/screen/languege/controller/languege_controller.dart';
 import '/util/language_utils.dart';
 import 'package:flutter/material.dart';
@@ -60,10 +61,10 @@ class MyApp extends StatelessWidget {
           locale: Locale(languageCtl.currentLang.value),
           fallbackLocale: const Locale('en'),
           debugShowCheckedModeBanner: false,
-          title: GlobalConst.kAppName,
+          title: L.appName.tr,
           supportedLocales: GlobalConst.supportedLocales,
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
-          home: SplashScreen(),
+          home: const SplashScreen(),
         );
       },
     );

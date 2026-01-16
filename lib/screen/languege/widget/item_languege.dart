@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/config/global_color.dart';
 import '/config/global_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ItemLanguege extends StatelessWidget {
   final String language;
@@ -37,7 +38,7 @@ class ItemLanguege extends StatelessWidget {
               height: 24,
             ),
             title: Text(
-              language,
+              language.tr,
               style: isSelected
                   ? GlobalTextStyles.font16w600ColorWhite
                   : GlobalTextStyles.font14w400ColorBlack,

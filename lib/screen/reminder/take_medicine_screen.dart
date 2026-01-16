@@ -10,6 +10,7 @@ import '/model/reminder.dart';
 import '/screen/reminder/controller/reminder_controller.dart';
 import '/widget/appbar_base.dart';
 import '/widget/body_background.dart';
+import '/lang/l.dart';
 
 class TakeMedicineScreen extends StatelessWidget {
   final Reminder reminder;
@@ -38,7 +39,7 @@ class TakeMedicineScreen extends StatelessWidget {
           ),
         ),
         title: GradientText(
-          "Uống thuốc",
+          L.takeMedicine.tr,
           gradient: GlobalColors.linearPrimary2,
           style: GlobalTextStyles.font20w600ColorWhite,
         ),
@@ -59,7 +60,7 @@ class TakeMedicineScreen extends StatelessWidget {
               40.verticalSpace,
               // Medicine Name
               Text(
-                reminder.title ?? "Medicine",
+                reminder.title ?? L.medicineFallback.tr,
                 style: GlobalTextStyles.font20w700ColorBlack.copyWith(
                   fontSize: 28.sp,
                 ),
@@ -80,7 +81,7 @@ class TakeMedicineScreen extends StatelessWidget {
               // Quantity
               if (reminder.quantity != null)
                 Text(
-                  "Số lượng: ${reminder.quantity} viên", // Localize
+                  "${L.quantity.tr}: ${reminder.quantity} ${reminder.quantity == 1 ? L.pillUnit.tr : L.pillUnits.tr}",
                   style: GlobalTextStyles.font16w600ColorBlack.copyWith(
                       color: GlobalColors.newtral, fontWeight: FontWeight.w400),
                 ),
@@ -93,8 +94,8 @@ class TakeMedicineScreen extends StatelessWidget {
                   await reminderCtl.markAsTaken(reminder);
                   Get.back();
                   Get.snackbar(
-                    "Thành công",
-                    "Đã uống",
+                    L.success.tr,
+                    L.takenSuccessMessage.tr,
                     backgroundColor: Colors.green.withOpacity(0.8),
                     colorText: Colors.white,
                   );
@@ -121,7 +122,7 @@ class TakeMedicineScreen extends StatelessWidget {
                       Icon(Icons.check, color: Colors.white),
                       8.horizontalSpace,
                       Text(
-                        "Xác nhận đã uống", // Localize
+                        L.confirmTaken.tr,
                         style: GlobalTextStyles.font16w600ColorWhite,
                       ),
                     ],

@@ -43,7 +43,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
       isShowBgImages: false,
       appbar: AppbarBase(
         title: GradientText(
-          "Trang chủ",
+          L.home.tr,
           gradient: GlobalColors.linearPrimary2,
           style: GlobalTextStyles.font20w600ColorWhite,
         ),
@@ -55,7 +55,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   MedicinceAnimation(),
                   SizedBox(
                     height: 43.h,
@@ -126,10 +126,11 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.medication, color: Colors.white),
+                                const Icon(Icons.medication,
+                                    color: Colors.white),
                                 8.horizontalSpace,
                                 Text(
-                                  "Take ${reminder.nextReminderObj.value!.title}",
+                                  "${L.take.tr} ${reminder.nextReminderObj.value!.title ?? L.medicineFallback.tr}",
                                   style: GlobalTextStyles.font16w600ColorWhite,
                                 ),
                               ],
@@ -140,7 +141,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                     }
                     return SizedBox();
                   }),
-                  Spacer(),
+                  const Spacer(),
                   30.verticalSpace
                 ],
               ),

@@ -12,8 +12,24 @@ Map<String, String> viLanguage = {
   L.unlockSuccess: "Mở khóa thành công",
   L.success: "Thành công",
   L.standardReminderUnlock1:
-      "Mở khóa tạo thời gian nhắc nhở tùy chỉnh\n+ Mở khóa chỉnh sửa nội dung nhắc nhở",
+      "Mở khóa tạo thời gian nhắc nhở tùy chỉnh\nMở khóa chỉnh sửa nội dung nhắc nhở",
   L.standardReminderUnlock2: "Tăng số lượng nhắc nhở lên 15",
+
+  L.appName: "Nhắc uống thuốc",
+  L.home: "Trang chủ",
+  L.take: "Uống",
+  L.takeMedicine: "Uống thuốc",
+  L.confirmTaken: "Xác nhận đã uống",
+  L.takenSuccessMessage: "Đã đánh dấu liều thuốc.",
+  L.quantity: "Số lượng",
+  L.quantityHint: "Số lượng (viên)",
+  L.enterQuantity: "Vui lòng nhập số lượng",
+  L.nextDoseIn: "Liều tiếp theo sau",
+  L.off: "TẮT",
+  L.unknown: "Không rõ",
+  L.pillUnit: "viên",
+  L.pillUnits: "viên",
+  L.medicineFallback: "Thuốc",
 
   L.unlockFeatureSetting: "Mở khóa tính năng (miễn phí)",
 
@@ -26,10 +42,13 @@ Map<String, String> viLanguage = {
 
   L.thisActionMayContainAdvertising: "Hành động này có thể chứa quảng cáo.",
 
+  L.splashDes: "Hành động này có thể chứa quảng cáo.",
+
 //
   L.permission: "Quyền truy cập",
   L.allowAccess: "Cho phép truy cập",
-  L.permissionDesc: "Ứng dụng này cần các quyền dưới đây để hoạt động đúng cách",
+  L.permissionDesc:
+      "Ứng dụng này cần các quyền dưới đây để hoạt động đúng cách",
   L.reminder: "Nhắc nhở",
   L.statistical: "Thống kê",
   L.dailyReminderAt: "Nhắc nhở hàng ngày lúc",
@@ -78,6 +97,7 @@ Map<String, String> viLanguage = {
   L.water: "Thuốc",
   L.history: "Lịch sử",
   L.settings: "Cài đặt",
+  L.settingtitle: "Cài đặt",
   L.reminderMode: "Chế độ nhắc nhở",
   L.reminderModeDes: "Chọn chế độ nhắc nhở và thiết lập nhắc nhở của bạn.",
   L.standard: "Tiêu chuẩn",
@@ -113,12 +133,27 @@ Map<String, String> viLanguage = {
   L.today: "Hôm nay",
   L.editTime: "Sửa thời gian",
   L.notiTitle: "Đã đến giờ uống thuốc!",
-  L.notiDes:
-      "Uống thuốc để giữ sức khỏe, và đừng quên cập nhật vào ứng dụng",
+  L.notiDes: "Uống thuốc để giữ sức khỏe, và đừng quên cập nhật vào ứng dụng",
+  L.notificationChannelName: "Nhắc uống thuốc",
+  L.notificationChannelDescription:
+      "Nhận thông báo đúng giờ để không quên uống thuốc.",
+  L.mondayShort: "T2",
+  L.tuesdayShort: "T3",
+  L.wednesdayShort: "T4",
+  L.thursdayShort: "T5",
+  L.fridayShort: "T6",
+  L.saturdayShort: "T7",
+  L.sundayShort: "CN",
   L.deleteRecord: "Xóa bản ghi",
   L.areYouSureDelete:
       "Bạn có chắc chắn muốn xóa bản ghi này khỏi lịch sử không?",
   L.delete: "Xóa",
   L.youHaveAchievedYourGoalToday: "Bạn đã đạt được mục tiêu hôm nay",
   L.welcomeBack: "Chào mừng trở lại",
+  L.vietnameseLanguage: "Tiếng Việt",
+  L.spanishLanguage: "Tiếng Tây Ban Nha",
+  L.germanLanguage: "Tiếng Đức",
+  L.indonesianLanguage: "Tiếng Indonesia",
+  L.portugueseLanguage: "Tiếng Bồ Đào Nha",
+  L.englishLanguage: "Tiếng Anh",
 };

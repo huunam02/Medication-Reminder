@@ -2,7 +2,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/config/global_color.dart';
 import '/config/global_sadow.dart';
 import '/config/global_text_style.dart';
+import '/lang/l.dart';
 import '/model/history.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemRecent extends StatelessWidget {
@@ -30,12 +32,12 @@ class CustomItemRecent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  history.title ?? "Unknown",
+                  history.title ?? L.unknown.tr,
                   style: GlobalTextStyles.font16w600ColorBlack,
                 ),
                 SizedBox(height: 4.0),
                 Text(
-                  "${convertUnitData(history.amount ?? 0, history.unit!)} ${history.unit!}",
+                  convertAmountWithUnit(history.amount ?? 0, history.unit),
                   style: GlobalTextStyles.font14w400ColorBlack,
                 ),
                 SizedBox(
@@ -56,7 +58,15 @@ class CustomItemRecent extends StatelessWidget {
     );
   }
 
-  String convertUnitData(int amount, String unit) {
-    return amount.toString();
+  String convertAmountWithUnit(int amount, String? unit) {
+    if (unit == null || unit.isEmpty) {
+      return amount.toString();
+    }
+    if (unit == L.pillUnit || unit == L.pillUnit.tr || unit == "pill") {
+      final bool isSingular = amount == 1;
+      final String localizedUnit = isSingular ? L.pillUnit.tr : L.pillUnits.tr;
+      return "$amount $localizedUnit";
+    }
+    return "$amount ${unit.tr}";
   }
 }

@@ -13,9 +13,25 @@ class L {
   static const String unlockSuccess = "Unlock Success";
   static const String success = "Success";
   static const String standardReminderUnlock1 =
-      "Unlock creating custom reminder times\n+ Unlock editing reminder content";
+      "Unlock creating custom reminder times\nUnlock editing reminder content";
   static const String standardReminderUnlock2 =
       "Increase the number of reminders to 15";
+
+  static const String appName = "Medication Reminder";
+  static const String home = "Home";
+  static const String take = "Take";
+  static const String takeMedicine = "Take Medicine";
+  static const String confirmTaken = "Confirm Taken";
+  static const String takenSuccessMessage = "Dose marked as taken.";
+  static const String quantity = "Quantity";
+  static const String quantityHint = "Quantity (pill)";
+  static const String enterQuantity = "Please enter quantity";
+  static const String nextDoseIn = "Next dose in";
+  static const String off = "OFF";
+  static const String unknown = "Unknown";
+  static const String pillUnit = "pill";
+  static const String pillUnits = "pills";
+  static const String medicineFallback = "Medication";
 
   static const String unlockFeatureSetting = "Unlock features (free)";
 
@@ -68,8 +84,7 @@ class L {
   static const String save = "Save";
   static const String dailyGoal = "Daily goal";
   static const String dailyGoalHint = "Enter your goal...";
-  static const String dailyGoalDes =
-      "Enter the amount of medication to take.";
+  static const String dailyGoalDes = "Enter the amount of medication to take.";
   static const String nextReminder = "Next Reminder";
   static const String drink = "TAKE";
   static const String createDrink = "Add Medication";
@@ -114,6 +129,17 @@ class L {
   static const String notiTitle = "It's time to take your medication!";
   static const String notiDes =
       "Take your medication to stay healthy, and don't forget to update your intake in the app";
+  static const String notificationChannelName = "Medication Reminders";
+  static const String notificationChannelDescription =
+      "Stay on schedule with timely medication alerts.";
+
+  static const String mondayShort = "Mon";
+  static const String tuesdayShort = "Tue";
+  static const String wednesdayShort = "Wed";
+  static const String thursdayShort = "Thu";
+  static const String fridayShort = "Fri";
+  static const String saturdayShort = "Sat";
+  static const String sundayShort = "Sun";
 
   static const String deleteRecord = "Delete Record";
   static const String areYouSureDelete =
@@ -137,4 +163,11 @@ class L {
       "This app needs permissions belowto work properly";
 
   static const String welcomeBack = "Welcome back";
+
+  static const String vietnameseLanguage = "Vietnamese";
+  static const String spanishLanguage = "Spanish";
+  static const String germanLanguage = "German";
+  static const String indonesianLanguage = "Indonesian";
+  static const String portugueseLanguage = "Portuguese";
+  static const String englishLanguage = "English";
 }

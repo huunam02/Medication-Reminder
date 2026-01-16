@@ -12,18 +12,37 @@ Map<String, String> ptLanguage = {
   L.unlockSuccess: "Desbloqueio bem-sucedido",
   L.success: "Sucesso",
   L.standardReminderUnlock1:
-      "Desbloquear a criação de horários de lembretes personalizados\n+ Desbloquear a edição do conteúdo do lembrete",
+      "Desbloquear a criação de horários de lembretes personalizados\nDesbloquear a edição do conteúdo do lembrete",
   L.standardReminderUnlock2: "Aumentar o número de lembretes para 15",
+
+  L.appName: "Lembrete de Medicamentos",
+  L.home: "Início",
+  L.take: "Tomar",
+  L.takeMedicine: "Tomar remédio",
+  L.confirmTaken: "Confirmar tomada",
+  L.takenSuccessMessage: "Dose marcada como tomada.",
+  L.quantity: "Quantidade",
+  L.quantityHint: "Quantidade (comprimido)",
+  L.enterQuantity: "Informe a quantidade",
+  L.nextDoseIn: "Próxima dose em",
+  L.off: "DESLIGADO",
+  L.unknown: "Desconhecido",
+  L.pillUnit: "comprimido",
+  L.pillUnits: "comprimidos",
+  L.medicineFallback: "Remédio",
 
   L.unlockFeatureSetting: "Desbloquear recursos (grátis)",
 
   L.allReminder: "Todos os Lembretes",
 
-  L.watchAdsToUnlock: "Assista a anúncios para desbloquear este recurso completamente grátis.",
+  L.watchAdsToUnlock:
+      "Assista a anúncios para desbloquear este recurso completamente grátis.",
 
   L.watchAds: "Assistir Anúncios",
 
   L.thisActionMayContainAdvertising: "Esta ação pode conter publicidade.",
+
+  L.splashDes: "Esta ação pode conter publicidade.",
 
   //
   L.permission: "Permissão",
@@ -78,6 +97,7 @@ Map<String, String> ptLanguage = {
   L.water: "Remédio",
   L.history: "Histórico",
   L.settings: "Configurações",
+  L.settingtitle: "Configurações",
   L.reminderMode: "Modo de Lembrete",
   L.reminderModeDes: "Selecione o modo de lembrete e configure seu lembrete.",
   L.standard: "Padrão",
@@ -115,10 +135,26 @@ Map<String, String> ptLanguage = {
   L.notiTitle: "É hora de tomar seu remédio!",
   L.notiDes:
       "Tome seu remédio para se manter saudável e não se esqueça de atualizar sua ingestão no aplicativo.",
+  L.notificationChannelName: "Lembretes de medicação",
+  L.notificationChannelDescription:
+      "Receba alertas pontuais para não esquecer seus medicamentos.",
+  L.mondayShort: "Seg",
+  L.tuesdayShort: "Ter",
+  L.wednesdayShort: "Qua",
+  L.thursdayShort: "Qui",
+  L.fridayShort: "Sex",
+  L.saturdayShort: "Sáb",
+  L.sundayShort: "Dom",
   L.deleteRecord: "Excluir registro",
   L.areYouSureDelete:
       "Tem certeza de que deseja excluir este registro do seu histórico?",
   L.delete: "Excluir",
   L.youHaveAchievedYourGoalToday: "Você alcançou sua meta hoje",
   L.welcomeBack: "Bem-vindo de volta",
+  L.vietnameseLanguage: "Vietnamita",
+  L.spanishLanguage: "Espanhol",
+  L.germanLanguage: "Alemão",
+  L.indonesianLanguage: "Indonésio",
+  L.portugueseLanguage: "Português",
+  L.englishLanguage: "Inglês",
 };

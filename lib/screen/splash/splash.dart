@@ -4,6 +4,7 @@ import '/util/preferences_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import '/config/global_text_style.dart';
+import '/lang/l.dart';
 import '/screen/languege/language.dart';
 import '/widget/body_background.dart';
 import 'package:get/get.dart';
@@ -68,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       textAlign: TextAlign.center,
-                      "Medication Reminder",
+                      L.appName.tr,
                       style: GlobalTextStyles.font32w700ColorWhite
                           .copyWith(fontSize: 24, color: Colors.black),
                     ),

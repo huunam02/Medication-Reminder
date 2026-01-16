@@ -136,7 +136,7 @@ class __BottomsheetTimeAddStandardState
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 16.w,
                   ),
-                  hintText: "Số lượng (viên)",
+                  hintText: L.quantityHint.tr,
                   hintStyle: GlobalTextStyles.font14w600ColorBlack
                       .copyWith(color: const Color(0xFF4B5563)),
                   border: InputBorder.none,
@@ -245,12 +245,12 @@ class __BottomsheetTimeAddStandardState
                 child: GestureDetector(
                   onTap: () {
                     if (_titleEdittingController.text.isEmpty) {
-                      Get.snackbar("Lỗi", "Vui lòng nhập tên thuốc",
+                      Get.snackbar(L.error.tr, L.enterMedicineName.tr,
                           backgroundColor: Colors.white);
                       return;
                     }
                     if (_quantityEdittingController.text.isEmpty) {
-                      Get.snackbar("Lỗi", "Vui lòng nhập số lượng",
+                      Get.snackbar(L.error.tr, L.enterQuantity.tr,
                           backgroundColor: Colors.white);
                       return;
                     }
@@ -323,7 +323,15 @@ class __BottomsheetTimeAddStandardState
   }
 
   Widget _buildDaySelector() {
-    final days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    final days = [
+      L.mondayShort.tr,
+      L.tuesdayShort.tr,
+      L.wednesdayShort.tr,
+      L.thursdayShort.tr,
+      L.fridayShort.tr,
+      L.saturdayShort.tr,
+      L.sundayShort.tr,
+    ];
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(7, (index) {

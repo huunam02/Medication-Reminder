@@ -1,4 +1,5 @@
 import 'dart:ui';
+import '/lang/l.dart';
 import '/model/languege.dart';
 import '/util/preferences_util.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +9,17 @@ class LanguageController extends GetxController {
   RxBool isClickLang = false.obs;
   RxInt selectedLanguageIndex = 0.obs;
   var listLanguege = [
-    Languege("Vietnamese", "assets/images/vietnam.png", "vi"),
+    Languege(L.vietnameseLanguage, "assets/images/vietnam.png", "vi"),
     // Languege("Hindi", "assets/images/hindi.png", "hi"),
-    Languege("Spanish", "assets/images/spanis.png", "es"),
+    Languege(L.spanishLanguage, "assets/images/spanis.png", "es"),
     // Languege("French", "assets/images/french.png", "fr"),
-    Languege("German", "assets/images/german.png", "de"),
-    Languege("Indonesian", "assets/images/indonesia.png", "id"),
-    Languege("Portuguese", "assets/images/portuguese.png", "pt"),
-    Languege("English", "assets/images/english.png", "en"),
+    Languege(L.germanLanguage, "assets/images/german.png", "de"),
+    Languege(L.indonesianLanguage, "assets/images/indonesia.png", "id"),
+    Languege(L.portugueseLanguage, "assets/images/portuguese.png", "pt"),
+    Languege(L.englishLanguage, "assets/images/english.png", "en"),
   ].obs;
   RxString currentLang = PreferencesUtil.getLanguage().obs;
-  RxString currentNameLang = "English".obs;
+  RxString currentNameLang = L.englishLanguage.obs;
   void checkLanguege() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (PreferencesUtil.isSelectFirstLanguage()) {

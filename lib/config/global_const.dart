@@ -5,13 +5,12 @@ class GlobalConst {
   static const String kPackageName = "com.stallion.drinkwaterreminder";
   static const supportedLocales = [
     Locale('en'),
-    Locale('es'),
-    Locale('pt'),
     Locale('de'),
+    Locale('es'),
     Locale('fr'),
     Locale('hi'),
-    Locale('es'),
     Locale('id'),
+    Locale('pt'),
     Locale('vi'),
   ];
 }

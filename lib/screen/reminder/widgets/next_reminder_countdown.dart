@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '/lang/l.dart';
 import '/config/global_text_style.dart';
 import '/config/global_color.dart';
 import '../controller/reminder_controller.dart';
@@ -50,8 +51,9 @@ class _NextReminderCountdownState extends State<NextReminderCountdown> {
 
     DateTime now = DateTime.now();
     DateTime time = DateTime.parse(reminder.dateTime);
-    DateTime nextTime = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-    
+    DateTime nextTime =
+        DateTime(now.year, now.month, now.day, time.hour, time.minute);
+
     if (nextTime.isBefore(now)) {
       nextTime = nextTime.add(const Duration(days: 1));
     }
@@ -97,7 +99,7 @@ class _NextReminderCountdownState extends State<NextReminderCountdown> {
         child: Column(
           children: [
             Text(
-              "Next Dose In", // You might want to localize this
+              L.nextDoseIn.tr,
               style: GlobalTextStyles.font14w400ColorWhite.copyWith(
                 color: Colors.white.withOpacity(0.9),
               ),

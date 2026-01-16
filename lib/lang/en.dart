@@ -12,8 +12,23 @@ Map<String, String> enLanguage = {
   L.unlockSuccess: "Unlock Success",
   L.success: "Success",
   L.standardReminderUnlock1:
-      "Unlock creating custom reminder times\n+ Unlock editing reminder content",
+      "Unlock creating custom reminder times\nUnlock editing reminder content",
   L.standardReminderUnlock2: "Increase the number of reminders to 15",
+  L.appName: "Medication Reminder",
+  L.home: "Home",
+  L.take: "Take",
+  L.takeMedicine: "Take Medicine",
+  L.confirmTaken: "Confirm taken",
+  L.takenSuccessMessage: "Dose marked as taken.",
+  L.quantity: "Quantity",
+  L.quantityHint: "Quantity (pill)",
+  L.enterQuantity: "Please enter quantity",
+  L.nextDoseIn: "Next dose in",
+  L.off: "OFF",
+  L.unknown: "Unknown",
+  L.pillUnit: "pill",
+  L.pillUnits: "pills",
+  L.medicineFallback: "Medication",
 
   L.unlockFeatureSetting: "Unlock features (free)",
 
@@ -24,6 +39,8 @@ Map<String, String> enLanguage = {
   L.watchAds: "Watch Ads",
 
   L.thisActionMayContainAdvertising: "This action may contain advertising.",
+
+  L.splashDes: "This action may contain advertising.",
 
 //
   L.permission: "Permission",
@@ -69,14 +86,14 @@ Map<String, String> enLanguage = {
   L.save: "Save",
   L.dailyGoal: "Daily goal",
   L.dailyGoalHint: "Enter your goal...",
-  L.dailyGoalDes:
-      "Enter your daily medication goal to ensure your health.",
+  L.dailyGoalDes: "Enter your daily medication goal to ensure your health.",
   L.nextReminder: "Next Reminder",
   L.drink: "TAKE MEDS",
   L.createDrink: "Add Medication",
   L.water: "Medication",
   L.history: "History",
   L.settings: "Settings",
+  L.settingtitle: "Settings",
   L.reminderMode: "Reminder Mode",
   L.reminderModeDes: "Select reminder mode and set up your reminder.",
   L.standard: "Standard",
@@ -114,10 +131,26 @@ Map<String, String> enLanguage = {
   L.notiTitle: "It's time to take your medication!",
   L.notiDes:
       "Take your medication to stay healthy, and don't forget to update your intake in the app",
+  L.notificationChannelName: "Medication Reminders",
+  L.notificationChannelDescription:
+      "Stay on schedule with timely medication alerts.",
+  L.mondayShort: "Mon",
+  L.tuesdayShort: "Tue",
+  L.wednesdayShort: "Wed",
+  L.thursdayShort: "Thu",
+  L.fridayShort: "Fri",
+  L.saturdayShort: "Sat",
+  L.sundayShort: "Sun",
   L.deleteRecord: "Delete Record",
   L.areYouSureDelete:
       "Are you sure you want to delete this record from your history?",
   L.delete: "Delete",
   L.youHaveAchievedYourGoalToday: "You have achieved your goal today",
   L.welcomeBack: "Welcome back",
+  L.vietnameseLanguage: "Vietnamese",
+  L.spanishLanguage: "Spanish",
+  L.germanLanguage: "German",
+  L.indonesianLanguage: "Indonesian",
+  L.portugueseLanguage: "Portuguese",
+  L.englishLanguage: "English",
 };

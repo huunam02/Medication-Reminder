@@ -59,21 +59,26 @@ class NotificationService {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
 
+    final androidDetails = AndroidNotificationDetails(
+      "REMINDER",
+      L.notificationChannelName.tr,
+      channelDescription: L.notificationChannelDescription.tr,
+      importance: Importance.high,
+      priority: Priority.high,
+      icon: '@mipmap/ic_launcher',
+    );
+
+    final notificationDetails = NotificationDetails(
+      iOS: const DarwinNotificationDetails(),
+      android: androidDetails,
+    );
+
     await flutterLocalNotificationsPlugin.zonedSchedule(
       id,
       L.notiTitle.tr,
       L.notiDes.tr,
       tz.TZDateTime.from(scheduledDate, tz.local),
-      const NotificationDetails(
-        iOS: DarwinNotificationDetails(),
-        android: AndroidNotificationDetails(
-          "REMINDER",
-          'Reminder Notifications',
-          importance: Importance.high,
-          priority: Priority.high,
-          icon: '@mipmap/ic_launcher',
-        ),
-      ),
+      notificationDetails,
       matchDateTimeComponents: DateTimeComponents.time,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
@@ -93,21 +98,26 @@ class NotificationService {
         scheduledDate = scheduledDate.add(const Duration(days: 1));
       }
 
+      final androidDetails = AndroidNotificationDetails(
+        "REMINDER",
+        L.notificationChannelName.tr,
+        channelDescription: L.notificationChannelDescription.tr,
+        importance: Importance.high,
+        priority: Priority.high,
+        icon: '@mipmap/ic_launcher',
+      );
+
+      final notificationDetails = NotificationDetails(
+        iOS: const DarwinNotificationDetails(),
+        android: androidDetails,
+      );
+
       await flutterLocalNotificationsPlugin.zonedSchedule(
         id * 10 + day,
         L.notiTitle.tr,
         L.notiDes.tr,
         tz.TZDateTime.from(scheduledDate, tz.local),
-        const NotificationDetails(
-          iOS: DarwinNotificationDetails(),
-          android: AndroidNotificationDetails(
-            "REMINDER",
-            'Reminder Notifications',
-            importance: Importance.high,
-            priority: Priority.high,
-            icon: '@mipmap/ic_launcher',
-          ),
-        ),
+        notificationDetails,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       );

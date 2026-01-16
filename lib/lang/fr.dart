@@ -2,8 +2,10 @@ import '/lang/l.dart';
 
 Map<String, String> frLanguage = {
   L.addReminder: "Ajouter un rappel",
-  L.youCanOnlyHaveUpTo10Reminders: "Vous ne pouvez avoir que jusqu'à 10 rappels",
-  L.youCanOnlyHaveUpTo15Reminders: "Vous ne pouvez avoir que jusqu'à 15 rappels",
+  L.youCanOnlyHaveUpTo10Reminders:
+      "Vous ne pouvez avoir que jusqu'à 10 rappels",
+  L.youCanOnlyHaveUpTo15Reminders:
+      "Vous ne pouvez avoir que jusqu'à 15 rappels",
   L.enterTitle: "Entrer le titre",
   L.enterMedicineName: "Entrer le nom du médicament",
   L.thisReminderAlreadyExists: "Ce rappel existe déjà",
@@ -12,8 +14,24 @@ Map<String, String> frLanguage = {
   L.unlockSuccess: "Déverrouillage réussi",
   L.success: "Succès",
   L.standardReminderUnlock1:
-      "Déverrouiller la création d'heures de rappel personnalisées\n+ Déverrouiller l'édition du contenu du rappel",
+      "Déverrouiller la création d'heures de rappel personnalisées\nDéverrouiller l'édition du contenu du rappel",
   L.standardReminderUnlock2: "Augmenter le nombre de rappels à 15",
+
+  L.appName: "Rappel de Médicaments",
+  L.home: "Accueil",
+  L.take: "Prendre",
+  L.takeMedicine: "Prendre le médicament",
+  L.confirmTaken: "Confirmer la prise",
+  L.takenSuccessMessage: "Dose marquée comme prise.",
+  L.quantity: "Quantité",
+  L.quantityHint: "Quantité (comprimé)",
+  L.enterQuantity: "Veuillez saisir la quantité",
+  L.nextDoseIn: "Prochaine dose dans",
+  L.off: "ARRÊT",
+  L.unknown: "Inconnu",
+  L.pillUnit: "comprimé",
+  L.pillUnits: "comprimés",
+  L.medicineFallback: "Médicament",
 
   L.unlockFeatureSetting: "Déverrouiller les fonctionnalités (gratuit)",
 
@@ -24,7 +42,10 @@ Map<String, String> frLanguage = {
 
   L.watchAds: "Regarder des publicités",
 
-  L.thisActionMayContainAdvertising: "Cette action peut contenir de la publicité.",
+  L.thisActionMayContainAdvertising:
+      "Cette action peut contenir de la publicité.",
+
+  L.splashDes: "Cette action peut contenir de la publicité.",
 
 //
   L.permission: "Permission",
@@ -79,6 +100,7 @@ Map<String, String> frLanguage = {
   L.water: "Médicament",
   L.history: "Historique",
   L.settings: "Paramètres",
+  L.settingtitle: "Paramètres",
   L.reminderMode: "Mode de rappel",
   L.reminderModeDes: "Sélectionnez le mode de rappel et configurez-le.",
   L.standard: "Standard",
@@ -116,6 +138,16 @@ Map<String, String> frLanguage = {
   L.notiTitle: "Il est temps de prendre vos médicaments !",
   L.notiDes:
       "Prenez vos médicaments pour rester en bonne santé et n'oubliez pas de mettre à jour votre prise dans l'application.",
+  L.notificationChannelName: "Rappels de médicaments",
+  L.notificationChannelDescription:
+      "Recevez des alertes ponctuelles pour ne pas oublier vos traitements.",
+  L.mondayShort: "Lun",
+  L.tuesdayShort: "Mar",
+  L.wednesdayShort: "Mer",
+  L.thursdayShort: "Jeu",
+  L.fridayShort: "Ven",
+  L.saturdayShort: "Sam",
+  L.sundayShort: "Dim",
   L.deleteRecord: "Supprimer l'enregistrement",
   L.areYouSureDelete:
       "Êtes-vous sûr de vouloir supprimer cet enregistrement de votre historique ?",
@@ -123,4 +155,10 @@ Map<String, String> frLanguage = {
   L.youHaveAchievedYourGoalToday:
       "Vous avez atteint votre objectif aujourd'hui",
   L.welcomeBack: "Bon retour",
+  L.vietnameseLanguage: "Vietnamien",
+  L.spanishLanguage: "Espagnol",
+  L.germanLanguage: "Allemand",
+  L.indonesianLanguage: "Indonésien",
+  L.portugueseLanguage: "Portugais",
+  L.englishLanguage: "Anglais",
 };

@@ -40,7 +40,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
       () => BodyCustom(
         floatingActionButton: reminderCtl.listReminder.isNotEmpty
             ? FloatingActionButton(
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 onPressed: () {
                   _showAddReminderBottomSheet(context);
                 },
@@ -195,7 +195,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
                           ),
                           Text(
                             reminder.quantity != null
-                                ? "${reminder.quantity} viên"
+                                ? "${reminder.quantity} ${reminder.quantity == 1 ? L.pillUnit.tr : L.pillUnits.tr}"
                                 : "",
                             style: GlobalTextStyles.font14w400ColorNewtral,
                           ),

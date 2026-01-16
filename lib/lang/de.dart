@@ -2,8 +2,10 @@ import '/lang/l.dart';
 
 Map<String, String> deLanguage = {
   L.addReminder: "Erinnerung hinzufügen",
-  L.youCanOnlyHaveUpTo10Reminders: "Sie können nur bis zu 10 Erinnerungen haben",
-  L.youCanOnlyHaveUpTo15Reminders: "Sie können nur bis zu 15 Erinnerungen haben",
+  L.youCanOnlyHaveUpTo10Reminders:
+      "Sie können nur bis zu 10 Erinnerungen haben",
+  L.youCanOnlyHaveUpTo15Reminders:
+      "Sie können nur bis zu 15 Erinnerungen haben",
   L.enterTitle: "Titel eingeben",
   L.enterMedicineName: "Medikamentennamen eingeben",
   L.thisReminderAlreadyExists: "Diese Erinnerung existiert bereits",
@@ -12,18 +14,37 @@ Map<String, String> deLanguage = {
   L.unlockSuccess: "Freischaltung erfolgreich",
   L.success: "Erfolg",
   L.standardReminderUnlock1:
-      "Freischaltung der Erstellung benutzerdefinierter Erinnerungszeiten\n+ Freischaltung der Bearbeitung von Erinnerungsinhalten",
+      "Freischaltung der Erstellung benutzerdefinierter Erinnerungszeiten\nFreischaltung der Bearbeitung von Erinnerungsinhalten",
   L.standardReminderUnlock2: "Erhöhen Sie die Anzahl der Erinnerungen auf 15",
+
+  L.appName: "Medikamenten-Erinnerung",
+  L.home: "Startseite",
+  L.take: "Einnehmen",
+  L.takeMedicine: "Medikament einnehmen",
+  L.confirmTaken: "Einnahme bestätigen",
+  L.takenSuccessMessage: "Dosis als eingenommen markiert.",
+  L.quantity: "Menge",
+  L.quantityHint: "Menge (Tablette)",
+  L.enterQuantity: "Bitte Menge eingeben",
+  L.nextDoseIn: "Nächste Dosis in",
+  L.off: "AUS",
+  L.unknown: "Unbekannt",
+  L.pillUnit: "Tablette",
+  L.pillUnits: "Tabletten",
+  L.medicineFallback: "Medikament",
 
   L.unlockFeatureSetting: "Funktionen freischalten (kostenlos)",
 
   L.allReminder: "Alle Erinnerungen",
 
-  L.watchAdsToUnlock: "Werbung ansehen, um diese Funktion vollständig kostenlos freizuschalten.",
+  L.watchAdsToUnlock:
+      "Werbung ansehen, um diese Funktion vollständig kostenlos freizuschalten.",
 
   L.watchAds: "Werbung ansehen",
 
   L.thisActionMayContainAdvertising: "Diese Aktion kann Werbung enthalten.",
+
+  L.splashDes: "Diese Aktion kann Werbung enthalten.",
   //
   L.permission: "Berechtigung",
   L.allowAccess: "Zugriff erlauben",
@@ -77,6 +98,7 @@ Map<String, String> deLanguage = {
   L.water: "Medikament",
   L.history: "Verlauf",
   L.settings: "Einstellungen",
+  L.settingtitle: "Einstellungen",
   L.reminderMode: "Erinnerungsmodus",
   L.reminderModeDes:
       "Wählen Sie den Erinnerungsmodus und richten Sie Ihre Erinnerung ein.",
@@ -115,10 +137,26 @@ Map<String, String> deLanguage = {
   L.notiTitle: "Es ist Zeit, Ihre Medikamente einzunehmen!",
   L.notiDes:
       "Nehmen Sie Ihre Medikamente ein, um gesund zu bleiben, und vergessen Sie nicht, Ihre Einnahme in der App zu aktualisieren.",
+  L.notificationChannelName: "Medikamentenerinnerungen",
+  L.notificationChannelDescription:
+      "Erhalte rechtzeitige Benachrichtigungen für deine Medikamente.",
+  L.mondayShort: "Mo",
+  L.tuesdayShort: "Di",
+  L.wednesdayShort: "Mi",
+  L.thursdayShort: "Do",
+  L.fridayShort: "Fr",
+  L.saturdayShort: "Sa",
+  L.sundayShort: "So",
   L.deleteRecord: "Datensatz löschen",
   L.areYouSureDelete:
       "Möchten Sie diesen Datensatz wirklich aus Ihrem Verlauf löschen?",
   L.delete: "Löschen",
   L.youHaveAchievedYourGoalToday: "Sie haben Ihr Ziel heute erreicht",
   L.welcomeBack: "Willkommen zurück",
+  L.vietnameseLanguage: "Vietnamesisch",
+  L.spanishLanguage: "Spanisch",
+  L.germanLanguage: "Deutsch",
+  L.indonesianLanguage: "Indonesisch",
+  L.portugueseLanguage: "Portugiesisch",
+  L.englishLanguage: "Englisch",
 };

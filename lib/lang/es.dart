@@ -12,8 +12,24 @@ Map<String, String> esLanguage = {
   L.unlockSuccess: "Desbloqueo exitoso",
   L.success: "Éxito",
   L.standardReminderUnlock1:
-      "Desbloquear la creación de horarios de recordatorio personalizados\n+ Desbloquear la edición del contenido del recordatorio",
+      "Desbloquear la creación de horarios de recordatorio personalizados\nDesbloquear la edición del contenido del recordatorio",
   L.standardReminderUnlock2: "Aumentar el número de recordatorios a 15",
+
+  L.appName: "Recordatorio de Medicación",
+  L.home: "Inicio",
+  L.take: "Tomar",
+  L.takeMedicine: "Tomar medicación",
+  L.confirmTaken: "Confirmar toma",
+  L.takenSuccessMessage: "Dosis marcada como tomada.",
+  L.quantity: "Cantidad",
+  L.quantityHint: "Cantidad (tableta)",
+  L.enterQuantity: "Introduce la cantidad",
+  L.nextDoseIn: "Próxima dosis en",
+  L.off: "APAGADO",
+  L.unknown: "Desconocido",
+  L.pillUnit: "tableta",
+  L.pillUnits: "tabletas",
+  L.medicineFallback: "Medicamento",
 
   L.unlockFeatureSetting: "Desbloquear funciones (gratis)",
 
@@ -25,6 +41,8 @@ Map<String, String> esLanguage = {
   L.watchAds: "Ver anuncios",
 
   L.thisActionMayContainAdvertising: "Esta acción puede contener publicidad.",
+
+  L.splashDes: "Esta acción puede contener publicidad.",
 
 //
   L.permission: "Permiso",
@@ -78,6 +96,7 @@ Map<String, String> esLanguage = {
   L.water: "Medicación",
   L.history: "Historial",
   L.settings: "Configuraciones",
+  L.settingtitle: "Configuraciones",
   L.reminderMode: "Modo de recordatorio",
   L.reminderModeDes: "Selecciona el modo de recordatorio y configúralo.",
   L.standard: "Estándar",
@@ -115,10 +134,26 @@ Map<String, String> esLanguage = {
   L.notiTitle: "¡Es hora de tomar tu medicación!",
   L.notiDes:
       "Toma tu medicación para mantenerte saludable y no olvides actualizar tu consumo en la aplicación.",
+  L.notificationChannelName: "Recordatorios de medicación",
+  L.notificationChannelDescription:
+      "Recibe alertas puntuales para no olvidar tus medicamentos.",
+  L.mondayShort: "Lun",
+  L.tuesdayShort: "Mar",
+  L.wednesdayShort: "Mié",
+  L.thursdayShort: "Jue",
+  L.fridayShort: "Vie",
+  L.saturdayShort: "Sáb",
+  L.sundayShort: "Dom",
   L.deleteRecord: "Eliminar registro",
   L.areYouSureDelete:
       "¿Estás seguro de que deseas eliminar este registro de tu historial?",
   L.delete: "Borrar",
   L.youHaveAchievedYourGoalToday: "Has alcanzado tu meta hoy",
   L.welcomeBack: "Bienvenido de nuevo",
+  L.vietnameseLanguage: "Vietnamita",
+  L.spanishLanguage: "Español",
+  L.germanLanguage: "Alemán",
+  L.indonesianLanguage: "Indonesio",
+  L.portugueseLanguage: "Portugués",
+  L.englishLanguage: "Inglés",
 };

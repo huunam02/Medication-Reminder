@@ -12,20 +12,44 @@ Map<String, String> hiLanguage = {
   L.unlockSuccess: "अनलॉक सफल",
   L.success: "सफलता",
   L.standardReminderUnlock1:
-      "कस्टम अनुस्मारक समय बनाने के लिए अनलॉक करें\n+ अनुस्मारक सामग्री संपादित करने के लिए अनलॉक करें",
+      "कस्टम अनुस्मारक समय बनाने के लिए अनलॉक करें\nअनुस्मारक सामग्री संपादित करने के लिए अनलॉक करें",
   L.standardReminderUnlock2: "अनुस्मारकों की संख्या 15 तक बढ़ाएँ",
+
+  L.appName: "दवा अनुस्मारक",
+  L.home: "मुखपृष्ठ",
+  L.take: "ले लें",
+  L.takeMedicine: "दवा लें",
+  L.confirmTaken: "लेने की पुष्टि करें",
+  L.takenSuccessMessage: "खुराक को लिया हुआ चिह्नित किया गया।",
+  L.quantity: "मात्रा",
+  L.quantityHint: "मात्रा (गोली)",
+  L.enterQuantity: "कृपया मात्रा दर्ज करें",
+  L.nextDoseIn: "अगली खुराक में",
+  L.off: "बंद",
+  L.unknown: "अज्ञात",
+  L.pillUnit: "गोली",
+  L.pillUnits: "गोलियाँ",
+  L.medicineFallback: "दवा",
 
   L.unlockFeatureSetting: "विशेषताएँ अनलॉक करें (मुफ्त)",
 
   L.allReminder: "सभी अनुस्मारक",
 
-  L.watchAdsToUnlock: "इस विशेषता को पूरी तरह से मुफ्त में अनलॉक करने के लिए विज्ञापन देखें।",
+  L.watchAdsToUnlock:
+      "इस विशेषता को पूरी तरह से मुफ्त में अनलॉक करने के लिए विज्ञापन देखें।",
 
   L.watchAds: "विज्ञापन देखें",
 
   L.thisActionMayContainAdvertising: "यह कार्रवाई विज्ञापन शामिल कर सकती है।",
 
+  L.splashDes: "यह कार्रवाई विज्ञापन शामिल कर सकती है।",
+
 //
+
+  L.permission: "अनुमति",
+  L.allowAccess: "पहुँच की अनुमति दें",
+  L.permissionDesc:
+      "यह ऐप सही ढंग से काम करने के लिए नीचे दी गई अनुमतियों की आवश्यकता है",
 
   L.reminder: "अनुस्मारक",
   L.statistical: "आँकड़े",
@@ -75,6 +99,7 @@ Map<String, String> hiLanguage = {
   L.water: "दवा",
   L.history: "इतिहास",
   L.settings: "सेटिंग्स",
+  L.settingtitle: "सेटिंग्स",
   L.reminderMode: "अनुस्मारक मोड",
   L.reminderModeDes: "अनुस्मारक मोड का चयन करें और अपने अनुस्मारक को सेट करें।",
   L.standard: "मानक",
@@ -112,10 +137,26 @@ Map<String, String> hiLanguage = {
   L.notiTitle: "दवा लेने का समय हो गया है!",
   L.notiDes:
       "स्वस्थ रहने के लिए अपनी दवा लें और ऐप में अपनी खपत अपडेट करना न भूलें।",
+  L.notificationChannelName: "दवाई रिमाइंडर",
+  L.notificationChannelDescription:
+      "समय पर दवाई की याद दिलाने वाले अलर्ट प्राप्त करें।",
+  L.mondayShort: "सोम",
+  L.tuesdayShort: "मंगल",
+  L.wednesdayShort: "बुध",
+  L.thursdayShort: "गुरु",
+  L.fridayShort: "शुक्र",
+  L.saturdayShort: "शनि",
+  L.sundayShort: "रवि",
   L.deleteRecord: "रिकॉर्ड हटाएँ",
   L.areYouSureDelete:
       "क्या आप वाकई इस रिकॉर्ड को अपने इतिहास से हटाना चाहते हैं?",
   L.delete: "मिटाना",
   L.youHaveAchievedYourGoalToday: "आपने आज अपना लक्ष्य प्राप्त कर लिया है",
   L.welcomeBack: "फिर से स्वागत है",
+  L.vietnameseLanguage: "वियतनामी",
+  L.spanishLanguage: "स्पेनिश",
+  L.germanLanguage: "जर्मन",
+  L.indonesianLanguage: "इंडोनेशियाई",
+  L.portugueseLanguage: "पुर्तगाली",
+  L.englishLanguage: "अंग्रेज़ी",
 };

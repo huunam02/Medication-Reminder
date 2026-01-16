@@ -12,7 +12,7 @@ class CustomNextTime extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       time == "OFF" || mode.isEmpty
-          ? "OFF"
+          ? L.off.tr
           : "${DateTime.parse(time).hour}:${DateTime.parse(time).minute > 9 ? DateTime.parse(time).minute : DateTime.parse(time).minute.toString().padLeft(2, "0")}   ",
       style: GlobalTextStyles.font18w600ColorWhite
           .copyWith(color: GlobalColors.colorLastLinear),
@@ -28,8 +28,7 @@ class CustomNextTimeReminder extends StatelessWidget {
     if (time == "OFF" || time.isEmpty) return const SizedBox.shrink();
     return Row(
       children: [
-        Text("${L.next.tr}: ",
-            style: GlobalTextStyles.font12w400ColorNewtral),
+        Text("${L.next.tr}: ", style: GlobalTextStyles.font12w400ColorNewtral),
         Text(
           "${DateTime.parse(time).hour}:${DateTime.parse(time).minute > 9 ? DateTime.parse(time).minute : DateTime.parse(time).minute.toString().padLeft(2, "0")}",
           style: GlobalTextStyles.font12w400ColorBlack

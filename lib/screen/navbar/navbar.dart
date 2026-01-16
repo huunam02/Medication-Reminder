@@ -24,10 +24,10 @@ class _NavbarScreenState extends State<NavbarScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    MedicineScreen(),
-    HistoryScreen(),
-    ReminderScreen(),
-    SettingScreen(),
+    const MedicineScreen(),
+    const HistoryScreen(),
+    const ReminderScreen(),
+    const SettingScreen(),
   ];
 
   @override
@@ -60,14 +60,14 @@ class _NavbarScreenState extends State<NavbarScreen> {
           children: [
             buildNavBarItem(
               Icons.medication,
-              "Uống thuốc",
+              L.takeMedicine.tr,
               0,
             ),
             buildNavBarItem(
               _selectedIndex == 1
                   ? "assets/icons/navbar22.svg"
                   : "assets/icons/navbar2.svg",
-              "Lịch sử",
+              L.history.tr,
               1,
             ),
             buildNavBarItem(

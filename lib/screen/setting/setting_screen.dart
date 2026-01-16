@@ -152,14 +152,14 @@ class _SettingScreenState extends State<SettingScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Text(
-              "Medication Reminder",
+              L.appName.tr,
               style: GlobalTextStyles.font16w600ColorBlack,
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Obx(
