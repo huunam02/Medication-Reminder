@@ -27,7 +27,7 @@ class _PrivacyPolicyScreenState extends LifecycleState<PrivacyPolicyScreen> {
         onWebResourceError: (error) {},
       ))
       ..loadRequest(Uri.parse(
-          "https://sites.google.com/view/privacypolicydrinkwaterremider/trang-ch%E1%BB%A7"));
+          "https://sites.google.com/view/privacypolicy-medicine-remind/trang-ch%E1%BB%A7"));
     return Scaffold(
       backgroundColor: GlobalColors.bg1,
       appBar: AppBar(

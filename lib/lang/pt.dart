@@ -42,7 +42,6 @@ Map<String, String> ptLanguage = {
 
   L.thisActionMayContainAdvertising: "Esta ação pode conter publicidade.",
 
-  L.splashDes: "Esta ação pode conter publicidade.",
 
   //
   L.permission: "Permissão",
@@ -55,6 +54,18 @@ Map<String, String> ptLanguage = {
   L.recentDrinkingHistory: "Histórico recente de medicação",
   L.setting: "Configuração",
   L.language: "Idioma",
+  L.languageHeroDescription:
+      "Personalize os lembretes no idioma em que você se sentir mais à vontade.",
+  L.languageAvailableTitle: "Idiomas disponíveis",
+  L.languageAvailableSubtitle:
+      "Escolha agora e troque quando quiser nas configurações.",
+  L.reminderOverviewTitle: "Plano diário de medicação",
+  L.reminderOverviewSubtitle:
+      "Mantenha-se consistente com seu horário de medicamentos.",
+  L.reminderActiveLabel: "Ativos",
+  L.reminderEmptyTitle: "Ainda não há lembretes",
+  L.reminderEmptySubtitle:
+      "Crie seu primeiro lembrete para receber notificações pontuais.",
   L.rate: "Classificar",
   L.rateUs: "Classifique-nos",
   L.share: "Compartilhar",
@@ -94,10 +105,8 @@ Map<String, String> ptLanguage = {
   L.nextReminder: "Próximo Lembrete",
   L.drink: "TOMAR REMÉDIO",
   L.createDrink: "Adicionar Remédio",
-  L.water: "Remédio",
   L.history: "Histórico",
   L.settings: "Configurações",
-  L.settingtitle: "Configurações",
   L.reminderMode: "Modo de Lembrete",
   L.reminderModeDes: "Selecione o modo de lembrete e configure seu lembrete.",
   L.standard: "Padrão",
@@ -157,4 +166,6 @@ Map<String, String> ptLanguage = {
   L.indonesianLanguage: "Indonésio",
   L.portugueseLanguage: "Português",
   L.englishLanguage: "Inglês",
+    L.splashHeroSubtitle: "Mantenha-se no horário e sinta-se bem.",
+    L.splashPreparingReminders: "Preparando seus lembretes...",
 };

@@ -4,7 +4,6 @@ import '/screen/setting/controller/setting_controller.dart';
 import 'screen/reminder/controller/reminder_controller.dart';
 import 'screen/medicine/controller/medicine_controller.dart';
 import '/screen/languege/controller/languege_controller.dart';
-import '/screen/oboarding/controller/onboarding_controller.dart';
 import '/util/preferences_util.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +12,6 @@ Future<void> init() async {
 
   final languageController = LanguageController();
   Get.lazyPut(() => languageController, fenix: true);
-
-  final onboardingController = OnboardingController();
-  Get.lazyPut(() => onboardingController, fenix: true);
 
   final permissionController = PermissionController();
   Get.lazyPut(() => permissionController, fenix: true);

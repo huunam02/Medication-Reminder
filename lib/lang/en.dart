@@ -40,7 +40,6 @@ Map<String, String> enLanguage = {
 
   L.thisActionMayContainAdvertising: "This action may contain advertising.",
 
-  L.splashDes: "This action may contain advertising.",
 
 //
   L.permission: "Permission",
@@ -52,6 +51,18 @@ Map<String, String> enLanguage = {
   L.recentDrinkingHistory: "Recent medication history",
   L.setting: "Setting",
   L.language: "Language",
+  L.languageHeroDescription:
+      "Personalize reminders in the language you feel most comfortable with.",
+  L.languageAvailableTitle: "Available languages",
+  L.languageAvailableSubtitle:
+      "Pick one now, switch anytime in settings.",
+  L.reminderOverviewTitle: "Daily medication plan",
+  L.reminderOverviewSubtitle:
+      "Stay consistent with your medication schedule.",
+  L.reminderActiveLabel: "Active",
+  L.reminderEmptyTitle: "No reminders yet",
+  L.reminderEmptySubtitle:
+      "Create your first reminder to get timely notifications.",
   L.rate: "Rate",
   L.rateUs: "Rate us",
   L.share: "Share",
@@ -90,10 +101,8 @@ Map<String, String> enLanguage = {
   L.nextReminder: "Next Reminder",
   L.drink: "TAKE MEDS",
   L.createDrink: "Add Medication",
-  L.water: "Medication",
   L.history: "History",
   L.settings: "Settings",
-  L.settingtitle: "Settings",
   L.reminderMode: "Reminder Mode",
   L.reminderModeDes: "Select reminder mode and set up your reminder.",
   L.standard: "Standard",
@@ -153,4 +162,6 @@ Map<String, String> enLanguage = {
   L.indonesianLanguage: "Indonesian",
   L.portugueseLanguage: "Portuguese",
   L.englishLanguage: "English",
+    L.splashHeroSubtitle: "Stay on schedule and feel your best.",
+    L.splashPreparingReminders: "Preparing your reminders...",
 };

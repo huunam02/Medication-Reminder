@@ -42,7 +42,6 @@ Map<String, String> hiLanguage = {
 
   L.thisActionMayContainAdvertising: "यह कार्रवाई विज्ञापन शामिल कर सकती है।",
 
-  L.splashDes: "यह कार्रवाई विज्ञापन शामिल कर सकती है।",
 
 //
 
@@ -57,6 +56,18 @@ Map<String, String> hiLanguage = {
   L.recentDrinkingHistory: "हाल ही का दवा इतिहास",
   L.setting: "सेटिंग",
   L.language: "भाषा",
+  L.languageHeroDescription:
+      "जिस भाषा में आप सबसे अधिक सहज हों, उसमें अनुस्मारकों को व्यक्तिगत बनाएं।",
+  L.languageAvailableTitle: "उपलब्ध भाषाएँ",
+  L.languageAvailableSubtitle:
+      "अभी एक चुनें, सेटिंग्स में कभी भी बदलें।",
+  L.reminderOverviewTitle: "दैनिक दवा योजना",
+  L.reminderOverviewSubtitle:
+      "अपनी दवा अनुसूची को निरंतर बनाए रखें।",
+  L.reminderActiveLabel: "सक्रिय",
+  L.reminderEmptyTitle: "अभी तक कोई अनुस्मारक नहीं",
+  L.reminderEmptySubtitle:
+      "समय पर सूचनाएँ पाने के लिए अपना पहला अनुस्मारक बनाएं।",
   L.rate: "रेट",
   L.rateUs: "हमें रेट करें",
   L.share: "शेयर",
@@ -96,10 +107,8 @@ Map<String, String> hiLanguage = {
   L.nextReminder: "अगला अनुस्मारक",
   L.drink: "दवा लें",
   L.createDrink: "दवा जोड़ें",
-  L.water: "दवा",
   L.history: "इतिहास",
   L.settings: "सेटिंग्स",
-  L.settingtitle: "सेटिंग्स",
   L.reminderMode: "अनुस्मारक मोड",
   L.reminderModeDes: "अनुस्मारक मोड का चयन करें और अपने अनुस्मारक को सेट करें।",
   L.standard: "मानक",
@@ -159,4 +168,6 @@ Map<String, String> hiLanguage = {
   L.indonesianLanguage: "इंडोनेशियाई",
   L.portugueseLanguage: "पुर्तगाली",
   L.englishLanguage: "अंग्रेज़ी",
+    L.splashHeroSubtitle: "समय पर रहें और बेहतरीन महसूस करें।",
+    L.splashPreparingReminders: "आपके अनुस्मारक तैयार किए जा रहे हैं...",
 };

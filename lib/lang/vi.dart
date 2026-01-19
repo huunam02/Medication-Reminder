@@ -42,7 +42,6 @@ Map<String, String> viLanguage = {
 
   L.thisActionMayContainAdvertising: "Hành động này có thể chứa quảng cáo.",
 
-  L.splashDes: "Hành động này có thể chứa quảng cáo.",
 
 //
   L.permission: "Quyền truy cập",
@@ -55,6 +54,18 @@ Map<String, String> viLanguage = {
   L.recentDrinkingHistory: "Lịch sử uống thuốc gần đây",
   L.setting: "Cài đặt",
   L.language: "Ngôn ngữ",
+  L.languageHeroDescription:
+      "Cá nhân hóa lời nhắc bằng ngôn ngữ bạn thấy thoải mái nhất.",
+  L.languageAvailableTitle: "Ngôn ngữ khả dụng",
+  L.languageAvailableSubtitle:
+      "Chọn ngay bây giờ, có thể đổi bất cứ lúc nào trong cài đặt.",
+  L.reminderOverviewTitle: "Kế hoạch uống thuốc hôm nay",
+  L.reminderOverviewSubtitle:
+      "Duy trì thói quen dùng thuốc đúng giờ.",
+  L.reminderActiveLabel: "Đang bật",
+  L.reminderEmptyTitle: "Chưa có nhắc nhở",
+  L.reminderEmptySubtitle:
+      "Tạo nhắc nhở đầu tiên để nhận thông báo đúng lúc.",
   L.rate: "Đánh giá",
   L.rateUs: "Đánh giá chúng tôi",
   L.share: "Chia sẻ",
@@ -94,10 +105,8 @@ Map<String, String> viLanguage = {
   L.nextReminder: "Nhắc nhở tiếp theo",
   L.drink: "UỐNG THUỐC",
   L.createDrink: "Thêm thuốc",
-  L.water: "Thuốc",
   L.history: "Lịch sử",
   L.settings: "Cài đặt",
-  L.settingtitle: "Cài đặt",
   L.reminderMode: "Chế độ nhắc nhở",
   L.reminderModeDes: "Chọn chế độ nhắc nhở và thiết lập nhắc nhở của bạn.",
   L.standard: "Tiêu chuẩn",
@@ -156,4 +165,6 @@ Map<String, String> viLanguage = {
   L.indonesianLanguage: "Tiếng Indonesia",
   L.portugueseLanguage: "Tiếng Bồ Đào Nha",
   L.englishLanguage: "Tiếng Anh",
+    L.splashHeroSubtitle: "Giữ đúng lịch trình và cảm thấy tuyệt vời.",
+    L.splashPreparingReminders: "Đang chuẩn bị các lời nhắc cho bạn...",
 };

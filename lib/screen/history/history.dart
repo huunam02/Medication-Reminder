@@ -1,4 +1,3 @@
-import 'package:flutter_svg/svg.dart';
 import 'package:medication_reminder/model/history.dart';
 import 'package:medication_reminder/screen/history/controller/history_controller.dart';
 import 'package:medication_reminder/screen/history/widget/custom_item_recent.dart';
@@ -73,10 +72,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.asset("assets/icons/no_recent.svg"),
-                    SizedBox(
-                      height: 16.0,
-                    ),
                     Text(
                       L.noRecent.tr,
                       style: GlobalTextStyles.font14w600ColorWhite.copyWith(

@@ -45,7 +45,6 @@ Map<String, String> frLanguage = {
   L.thisActionMayContainAdvertising:
       "Cette action peut contenir de la publicité.",
 
-  L.splashDes: "Cette action peut contenir de la publicité.",
 
 //
   L.permission: "Permission",
@@ -58,6 +57,18 @@ Map<String, String> frLanguage = {
   L.recentDrinkingHistory: "Historique de médication récent",
   L.setting: "Paramètre",
   L.language: "Langue",
+  L.languageHeroDescription:
+      "Personnalisez les rappels dans la langue avec laquelle vous êtes le plus à l'aise.",
+  L.languageAvailableTitle: "Langues disponibles",
+  L.languageAvailableSubtitle:
+      "Choisissez-en une maintenant, changez-la à tout moment dans les paramètres.",
+  L.reminderOverviewTitle: "Plan de prise du jour",
+  L.reminderOverviewSubtitle:
+      "Restez régulier dans votre prise de médicaments.",
+  L.reminderActiveLabel: "Actifs",
+  L.reminderEmptyTitle: "Aucun rappel pour le moment",
+  L.reminderEmptySubtitle:
+      "Créez votre premier rappel pour recevoir des notifications à temps.",
   L.rate: "Évaluer",
   L.rateUs: "Évaluez-nous",
   L.share: "Partager",
@@ -97,10 +108,8 @@ Map<String, String> frLanguage = {
   L.nextReminder: "Prochain rappel",
   L.drink: "PRENDRE MÉDICAMENT",
   L.createDrink: "Ajouter médicament",
-  L.water: "Médicament",
   L.history: "Historique",
   L.settings: "Paramètres",
-  L.settingtitle: "Paramètres",
   L.reminderMode: "Mode de rappel",
   L.reminderModeDes: "Sélectionnez le mode de rappel et configurez-le.",
   L.standard: "Standard",
@@ -161,4 +170,6 @@ Map<String, String> frLanguage = {
   L.indonesianLanguage: "Indonésien",
   L.portugueseLanguage: "Portugais",
   L.englishLanguage: "Anglais",
+    L.splashHeroSubtitle: "Restez dans le rythme et sentez-vous au mieux.",
+    L.splashPreparingReminders: "Préparation de vos rappels...",
 };

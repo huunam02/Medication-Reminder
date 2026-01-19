@@ -38,7 +38,6 @@ Map<String, String> idLanguage = {
   L.watchAds: "Tonton Iklan",
   L.thisActionMayContainAdvertising: "Tindakan ini mungkin berisi iklan.",
 
-  L.splashDes: "Tindakan ini mungkin berisi iklan.",
   //
   L.permission: "Izin",
   L.allowAccess: "Izinkan Akses",
@@ -50,6 +49,18 @@ Map<String, String> idLanguage = {
   L.recentDrinkingHistory: "Riwayat minum obat terbaru",
   L.setting: "Pengaturan",
   L.language: "Bahasa",
+  L.languageHeroDescription:
+      "Personalisasikan pengingat dalam bahasa yang paling nyaman bagi Anda.",
+  L.languageAvailableTitle: "Bahasa yang tersedia",
+  L.languageAvailableSubtitle:
+      "Pilih sekarang, bisa diganti kapan saja di pengaturan.",
+  L.reminderOverviewTitle: "Rencana obat harian",
+  L.reminderOverviewSubtitle:
+      "Tetap konsisten dengan jadwal obat Anda.",
+  L.reminderActiveLabel: "Aktif",
+  L.reminderEmptyTitle: "Belum ada pengingat",
+  L.reminderEmptySubtitle:
+      "Buat pengingat pertama Anda untuk menerima notifikasi tepat waktu.",
   L.rate: "Nilai",
   L.rateUs: "Nilai kami",
   L.share: "Bagikan",
@@ -89,10 +100,8 @@ Map<String, String> idLanguage = {
   L.nextReminder: "Pengingat Berikutnya",
   L.drink: "MINUM OBAT",
   L.createDrink: "Tambah Obat",
-  L.water: "Obat",
   L.history: "Riwayat",
   L.settings: "Pengaturan",
-  L.settingtitle: "Pengaturan",
   L.reminderMode: "Mode Pengingat",
   L.reminderModeDes: "Pilih mode pengingat dan atur pengingat Anda.",
   L.standard: "Standar",
@@ -152,4 +161,6 @@ Map<String, String> idLanguage = {
   L.indonesianLanguage: "Indonesia",
   L.portugueseLanguage: "Portugis",
   L.englishLanguage: "Inggris",
+    L.splashHeroSubtitle: "Tetap terjadwal dan rasakan yang terbaik.",
+    L.splashPreparingReminders: "Sedang menyiapkan pengingat Anda...",
 };

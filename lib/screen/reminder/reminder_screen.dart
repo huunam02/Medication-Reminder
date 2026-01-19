@@ -53,63 +53,15 @@ class _ReminderScreenState extends State<ReminderScreen> {
           title: _buildTitle(),
           centerTitle: true,
         ),
-        child: Column(
-          children: [
-            const NextReminderCountdown(),
-            Expanded(
-                child: reminderCtl.isLoad.value == false
-                    ? reminderCtl.listReminder.isEmpty
-                        ? Center(
-                            child: GestureDetector(
-                              onTap: () {
-                                _showAddReminderBottomSheet(context);
-                              },
-                              child: Container(
-                                height: 56.h,
-                                width: 240.w,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    gradient: GlobalColors.linearPrimary2,
-                                    borderRadius: BorderRadius.circular(28.0)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(
-                                      "assets/icons/add.svg",
-                                      height: 24.0,
-                                      width: 24.0,
-                                    ),
-                                    SizedBox(
-                                      width: 12.0,
-                                    ),
-                                    Text(
-                                      L.addReminder.tr,
-                                      style:
-                                          GlobalTextStyles.font16w600ColorWhite,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
-                        : ListView.separated(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 16.0),
-                            separatorBuilder: (context, index) => SizedBox(
-                              height: 16.0,
-                            ),
-                            itemCount: reminderCtl.listReminder.length,
-                            itemBuilder: (context, index) {
-                              final reminder = reminderCtl.listReminder[index];
-                              DateTime dateTime =
-                                  DateTime.parse(reminder.dateTime);
-                              return _buildItem(dateTime, context, reminder);
-                            },
-                          )
-                    : Center(
-                        child: CircularProgressIndicator(),
-                      )),
-          ],
+        edgeInsetsPadding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: reminderCtl.isLoad.value
+              ? const Center(
+                  key: ValueKey("loading"),
+                  child: CircularProgressIndicator(),
+                )
+              : _buildScrollableLayout(context),
         ),
       ),
     );
@@ -166,113 +118,194 @@ class _ReminderScreenState extends State<ReminderScreen> {
     );
   }
 
-  Container _buildItem(
-      DateTime dateTime, BuildContext context, Reminder reminder) {
+  Widget _buildScrollableLayout(BuildContext context) {
+    final hasReminders = reminderCtl.listReminder.isNotEmpty;
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(child: 24.verticalSpace),
+        SliverToBoxAdapter(child: _buildOverviewCard()),
+        SliverToBoxAdapter(child: 16.verticalSpace),
+        SliverToBoxAdapter(
+          child: NextReminderCountdown(
+            margin: EdgeInsets.zero,
+          ),
+        ),
+        SliverToBoxAdapter(child: 24.verticalSpace),
+        SliverToBoxAdapter(
+          child: _buildSectionHeader(context, hasReminders),
+        ),
+        if (hasReminders)
+          SliverPadding(
+            padding: EdgeInsets.only(top: 12.h, bottom: 32.h),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final reminder = reminderCtl.listReminder[index];
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 12.h),
+                    child: _buildReminderCard(context, reminder),
+                  );
+                },
+                childCount: reminderCtl.listReminder.length,
+              ),
+            ),
+          )
+        else
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: _buildEmptyState(context),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildReminderCard(BuildContext context, Reminder reminder) {
+    final dateTime = DateTime.parse(reminder.dateTime);
+    final isActive = reminder.isOn;
+    final primaryTextColor = isActive ? Colors.white : Colors.black87;
+    final secondaryTextColor = isActive
+        ? Colors.white.withOpacity(0.9)
+        : Colors.black.withOpacity(0.65);
+    final repeatLabel = _formatRepeatDays(reminder.repeatDays);
+    final quantityLabel = reminder.quantity != null
+        ? "${reminder.quantity} ${reminder.quantity == 1 ? L.pillUnit.tr : L.pillUnits.tr}"
+        : L.medicineFallback.tr;
+
     return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
       decoration: BoxDecoration(
-        boxShadow: GlobalShadow.primary,
-        borderRadius: BorderRadius.circular(16.0),
-        color: Colors.white,
+        gradient: isActive ? GlobalColors.linearPrimary2 : null,
+        color: isActive ? null : Colors.white,
+        borderRadius: BorderRadius.circular(28.r),
+        border: Border.all(
+          color: isActive ? Colors.transparent : Colors.black.withOpacity(0.05),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: (isActive
+                    ? GlobalColors.linearPrimary2.colors.last
+                    : Colors.black)
+                .withOpacity(0.08),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ],
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildTimeBadge(context, dateTime, isActive),
+              16.horizontalSpace,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            reminder.title ?? "",
-                            style: GlobalTextStyles.font16w600ColorBlack,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Text(
-                            reminder.quantity != null
-                                ? "${reminder.quantity} ${reminder.quantity == 1 ? L.pillUnit.tr : L.pillUnits.tr}"
-                                : "",
-                            style: GlobalTextStyles.font14w400ColorNewtral,
-                          ),
-                        ],
+                    Text(
+                      reminder.title?.isNotEmpty == true
+                          ? reminder.title!
+                          : L.medicineFallback.tr,
+                      style: GlobalTextStyles.font16w600ColorBlack.copyWith(
+                        color: primaryTextColor,
                       ),
                     ),
-                    10.horizontalSpace,
+                    4.verticalSpace,
                     Text(
-                      "${dateTime.hour}:${dateTime.minute > 9 ? dateTime.minute : dateTime.minute.toString().padLeft(2, "0")}  ",
-                      style: GlobalTextStyles.font16w600ColorBlack,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              int hour = dateTime.hour;
-                              int minute = dateTime.minute;
-                              return BottomsheetTimeEditStandard(
-                                reminder: reminder,
-                                onClickDelete: () {
-                                  Get.back(); // Close bottom sheet
-                                  _showDeleteConfirmDialog(context, reminder);
-                                },
-                                onClickSave: (title, quantity, repeatDays) {
-                                  DateTime dateTimeUpdate = DateTime.utc(
-                                    dateTime.year,
-                                    dateTime.month,
-                                    dateTime.day,
-                                    hour,
-                                    minute,
-                                    0,
-                                  );
-                                  final reminderNew = reminder.copyWith(
-                                    dateTime: dateTimeUpdate.toString(),
-                                    title: title,
-                                    quantity: int.tryParse(quantity),
-                                    repeatDays: repeatDays,
-                                  );
-                                  reminderCtl.updateTimeReminder(reminderNew);
-                                },
-                                onChangeHour: (value) {
-                                  hour = value;
-                                },
-                                onChangeMinute: (value) {
-                                  minute = value;
-                                },
-                                defaultHour: dateTime.hour,
-                                defaultMinute: dateTime.minute,
-                              );
-                            });
-                      },
-                      child: SvgPicture.asset("assets/icons/pen.svg",
-                          width: 18.0, height: 18.0),
+                      quantityLabel,
+                      style: GlobalTextStyles.font14w400ColorNewtral.copyWith(
+                        color: secondaryTextColor,
+                      ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    onPressed: () =>
+                        _showEditReminderBottomSheet(context, reminder),
+                    icon: Icon(
+                      Icons.edit_outlined,
+                      color: primaryTextColor,
+                      size: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-          10.horizontalSpace,
-          GestureDetector(
-            onTap: () {
-              checkPermission(() {
-                reminderCtl.updateOnReminder(reminder);
-              });
-            },
-            child: Image.asset(
-              reminder.isOn
-                  ? "assets/images/switch_on.png"
-                  : "assets/images/switch_off.png",
-              width: 40,
-              height: 24.0,
-            ),
+          18.verticalSpace,
+          Row(
+            children: [
+              _buildInfoChip(
+                icon: Icons.repeat,
+                label: repeatLabel,
+                isActive: isActive,
+              ),
+              10.horizontalSpace,
+              _buildInfoChip(
+                icon: Icons.medication_liquid,
+                label: quantityLabel,
+                isActive: isActive,
+              ),
+            ],
           )
         ],
       ),
+    );
+  }
+
+  Widget _buildSectionHeader(BuildContext context, bool hasReminders) {
+    final totalReminders = reminderCtl.listReminder.length;
+    final activeReminders =
+        reminderCtl.listReminder.where((element) => element.isOn).length;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                L.allReminder.tr,
+                style: GlobalTextStyles.font18w700ColorBlack,
+              ),
+              4.verticalSpace,
+              Text(
+                hasReminders
+                    ? "${activeReminders}/$totalReminders ${L.reminderActiveLabel.tr}"
+                    : L.reminderEmptySubtitle.tr,
+                style: GlobalTextStyles.font12w400ColorNewtral,
+              ),
+            ],
+          ),
+        ),
+        TextButton.icon(
+          onPressed: () => _showAddReminderBottomSheet(context),
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+            backgroundColor:
+                GlobalColors.linearPrimary2.colors.first.withOpacity(0.12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24.r),
+            ),
+          ),
+          icon: Icon(
+            Icons.add,
+            color: GlobalColors.linearPrimary2.colors.last,
+            size: 18,
+          ),
+          label: Text(
+            L.addReminder.tr,
+            style: GlobalTextStyles.font12w400ColorBlack.copyWith(
+              color: GlobalColors.linearPrimary2.colors.last,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -292,6 +325,315 @@ class _ReminderScreenState extends State<ReminderScreen> {
               : SizedBox(),
         )
       ],
+    );
+  }
+
+  Widget _buildOverviewCard() {
+    final totalReminders = reminderCtl.listReminder.length;
+    final activeReminders =
+        reminderCtl.listReminder.where((element) => element.isOn).length;
+    return Container(
+      padding: EdgeInsets.all(20.w),
+      decoration: BoxDecoration(
+        gradient: GlobalColors.linearPrimary1,
+        borderRadius: BorderRadius.circular(32.r),
+        boxShadow: [
+          BoxShadow(
+            color: GlobalColors.colorLastLinear.withOpacity(0.25),
+            blurRadius: 24,
+            offset: const Offset(0, 16),
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  L.reminderOverviewTitle.tr,
+                  style: GlobalTextStyles.font18w600ColorWhite,
+                ),
+                6.verticalSpace,
+                Text(
+                  L.reminderOverviewSubtitle.tr,
+                  style: GlobalTextStyles.font12w400ColorWhiteOp60,
+                ),
+                18.verticalSpace,
+                Row(
+                  children: [
+                    _buildOverviewStat(
+                      label: L.allReminder.tr,
+                      value: totalReminders.toString(),
+                    ),
+                    16.horizontalSpace,
+                    _buildOverviewStat(
+                      label: L.reminderActiveLabel.tr,
+                      value: activeReminders.toString(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          16.horizontalSpace,
+          Container(
+            width: 64.w,
+            height: 64.w,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            child: Icon(
+              Icons.medication_outlined,
+              color: Colors.white,
+              size: 28.w,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOverviewStat({required String label, required String value}) {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.18),
+          borderRadius: BorderRadius.circular(24.r),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              value,
+              style: GlobalTextStyles.font20w700ColorWhite,
+            ),
+            4.verticalSpace,
+            Text(
+              label,
+              style: GlobalTextStyles.font12w400ColorWhiteOp60,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 100.w,
+            height: 100.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(32.r),
+              boxShadow: GlobalShadow.primary,
+            ),
+            child: Icon(
+              Icons.alarm_add,
+              color: GlobalColors.colorLastLinear,
+              size: 40.w,
+            ),
+          ),
+          20.verticalSpace,
+          Text(
+            L.reminderEmptyTitle.tr,
+            style: GlobalTextStyles.font18w600ColorBlack,
+          ),
+          8.verticalSpace,
+          Text(
+            L.reminderEmptySubtitle.tr,
+            style: GlobalTextStyles.font12w400ColorNewtral,
+            textAlign: TextAlign.center,
+          ),
+          24.verticalSpace,
+          _buildAddReminderButton(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAddReminderButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showAddReminderBottomSheet(context),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 14.h),
+        decoration: BoxDecoration(
+          gradient: GlobalColors.linearPrimary2,
+          borderRadius: BorderRadius.circular(32.r),
+          boxShadow: GlobalShadow.primary,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              "assets/icons/add.svg",
+              height: 20.w,
+              width: 20.w,
+            ),
+            10.horizontalSpace,
+            Text(
+              L.addReminder.tr,
+              style: GlobalTextStyles.font16w600ColorWhite,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoChip(
+      {required IconData icon, required String label, required bool isActive}) {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          color: isActive
+              ? Colors.white.withOpacity(0.15)
+              : Colors.black.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(20.r),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              size: 16,
+              color: isActive ? Colors.white : Colors.black87,
+            ),
+            6.horizontalSpace,
+            Expanded(
+              child: Text(
+                label,
+                overflow: TextOverflow.ellipsis,
+                style: GlobalTextStyles.font12w400ColorBlack.copyWith(
+                  color: isActive ? Colors.white : Colors.black87,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTimeBadge(
+      BuildContext context, DateTime dateTime, bool isActive) {
+    final timeText = _formatTime(context, dateTime);
+    return Container(
+      width: 74.w,
+      padding: EdgeInsets.symmetric(vertical: 14.h),
+      decoration: BoxDecoration(
+        color: isActive
+            ? Colors.white.withOpacity(0.2)
+            : Colors.black.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(22.r),
+      ),
+      child: Column(
+        children: [
+          Text(
+            timeText.split(" ").first,
+            style: GlobalTextStyles.font16w600ColorBlack.copyWith(
+              color: isActive ? Colors.white : Colors.black87,
+            ),
+          ),
+          if (timeText.contains(" "))
+            Text(
+              timeText.split(" ").last,
+              style: GlobalTextStyles.font12w400ColorNewtral.copyWith(
+                color:
+                    isActive ? Colors.white70 : Colors.black.withOpacity(0.55),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  String _formatRepeatDays(String? repeatDays) {
+    if (repeatDays == null || repeatDays.isEmpty) {
+      return L.oneTime.tr;
+    }
+    final dayLabels = [
+      L.mondayShort.tr,
+      L.tuesdayShort.tr,
+      L.wednesdayShort.tr,
+      L.thursdayShort.tr,
+      L.fridayShort.tr,
+      L.saturdayShort.tr,
+      L.sundayShort.tr,
+    ];
+    final days = repeatDays
+        .split(',')
+        .map((e) => int.tryParse(e))
+        .whereType<int>()
+        .toList();
+    if (days.length == 7) {
+      return L.daily.tr;
+    }
+    return days
+        .map((day) => dayLabels[(day - 1).clamp(0, dayLabels.length - 1)])
+        .join(', ');
+  }
+
+  String _formatTime(BuildContext context, DateTime dateTime) {
+    final use24HourFormat = MediaQuery.of(context).alwaysUse24HourFormat;
+    final minutes = dateTime.minute.toString().padLeft(2, '0');
+    if (use24HourFormat) {
+      final hours = dateTime.hour.toString().padLeft(2, '0');
+      return "$hours:$minutes";
+    }
+    final hour = dateTime.hour % 12 == 0 ? 12 : dateTime.hour % 12;
+    final period = dateTime.hour >= 12 ? "PM" : "AM";
+    return "$hour:$minutes $period";
+  }
+
+  void _showEditReminderBottomSheet(BuildContext context, Reminder reminder) {
+    final dateTime = DateTime.parse(reminder.dateTime);
+    int hour = dateTime.hour;
+    int minute = dateTime.minute;
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return BottomsheetTimeEditStandard(
+          reminder: reminder,
+          onClickDelete: () {
+            Get.back();
+            _showDeleteConfirmDialog(context, reminder);
+          },
+          onClickSave: (title, quantity, repeatDays) {
+            DateTime dateTimeUpdate = DateTime.utc(
+              dateTime.year,
+              dateTime.month,
+              dateTime.day,
+              hour,
+              minute,
+              0,
+            );
+            final reminderNew = reminder.copyWith(
+              dateTime: dateTimeUpdate.toString(),
+              title: title,
+              quantity: int.tryParse(quantity),
+              repeatDays: repeatDays,
+            );
+            reminderCtl.updateTimeReminder(reminderNew);
+          },
+          onChangeHour: (value) {
+            hour = value;
+          },
+          onChangeMinute: (value) {
+            minute = value;
+          },
+          defaultHour: dateTime.hour,
+          defaultMinute: dateTime.minute,
+        );
+      },
     );
   }
 

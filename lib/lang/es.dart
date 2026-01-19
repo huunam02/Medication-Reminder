@@ -42,7 +42,6 @@ Map<String, String> esLanguage = {
 
   L.thisActionMayContainAdvertising: "Esta acción puede contener publicidad.",
 
-  L.splashDes: "Esta acción puede contener publicidad.",
 
 //
   L.permission: "Permiso",
@@ -55,6 +54,18 @@ Map<String, String> esLanguage = {
   L.recentDrinkingHistory: "Historial de medicación reciente",
   L.setting: "Configuración",
   L.language: "Idioma",
+  L.languageHeroDescription:
+      "Personaliza los recordatorios en el idioma con el que te sientas más cómodo.",
+  L.languageAvailableTitle: "Idiomas disponibles",
+  L.languageAvailableSubtitle:
+      "Elige uno ahora, cámbialo cuando quieras en Configuración.",
+  L.reminderOverviewTitle: "Plan diario de medicación",
+  L.reminderOverviewSubtitle:
+      "Mantén tu rutina de medicación constante.",
+  L.reminderActiveLabel: "Activos",
+  L.reminderEmptyTitle: "Aún no hay recordatorios",
+  L.reminderEmptySubtitle:
+      "Crea tu primer recordatorio para recibir notificaciones a tiempo.",
   L.rate: "Calificar",
   L.rateUs: "Califícanos",
   L.share: "Compartir",
@@ -93,10 +104,8 @@ Map<String, String> esLanguage = {
   L.nextReminder: "Próximo recordatorio",
   L.drink: "TOMAR MEDICACIÓN",
   L.createDrink: "Añadir medicación",
-  L.water: "Medicación",
   L.history: "Historial",
   L.settings: "Configuraciones",
-  L.settingtitle: "Configuraciones",
   L.reminderMode: "Modo de recordatorio",
   L.reminderModeDes: "Selecciona el modo de recordatorio y configúralo.",
   L.standard: "Estándar",
@@ -156,4 +165,6 @@ Map<String, String> esLanguage = {
   L.indonesianLanguage: "Indonesio",
   L.portugueseLanguage: "Portugués",
   L.englishLanguage: "Inglés",
+    L.splashHeroSubtitle: "Mantente en horario y siéntete genial.",
+    L.splashPreparingReminders: "Preparando tus recordatorios...",
 };

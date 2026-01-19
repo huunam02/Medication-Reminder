@@ -46,9 +46,20 @@ class L {
       "This action may contain advertising";
 
   //
-  static const String splashDes = "This action may contain advertising";
   static const String setting = "Setting";
   static const String language = "Language";
+  static const String languageHeroDescription =
+      "Personalize reminders in the language you feel most comfortable with.";
+  static const String languageAvailableTitle = "Available languages";
+  static const String languageAvailableSubtitle =
+      "Pick one now, switch anytime in settings.";
+  static const String reminderOverviewTitle = "Daily medication plan";
+  static const String reminderOverviewSubtitle =
+      "Stay consistent with your medication schedule.";
+  static const String reminderActiveLabel = "Active";
+  static const String reminderEmptyTitle = "No reminders yet";
+  static const String reminderEmptySubtitle =
+      "Create your first reminder to get timely notifications.";
   static const String rate = "Rate";
   static const String rateUs = "Rate us";
   static const String share = "Share";
@@ -80,7 +91,6 @@ class L {
   static const String wellcome = "Welcome";
   static const String wellcomeBack = "Welcome Back";
   static const String continuee = "Continue";
-  static const String settingtitle = "Settings";
   static const String save = "Save";
   static const String dailyGoal = "Daily goal";
   static const String dailyGoalHint = "Enter your goal...";
@@ -88,7 +98,6 @@ class L {
   static const String nextReminder = "Next Reminder";
   static const String drink = "TAKE";
   static const String createDrink = "Add Medication";
-  static const String water = "Medication";
   static const String history = "History";
   static const String settings = "Settings";
   static const String reminderMode = "Reminder Mode";
@@ -170,4 +179,9 @@ class L {
   static const String indonesianLanguage = "Indonesian";
   static const String portugueseLanguage = "Portuguese";
   static const String englishLanguage = "English";
+
+    static const String splashHeroSubtitle =
+            "Stay on schedule and feel your best.";
+    static const String splashPreparingReminders =
+            "Preparing your reminders...";
 }

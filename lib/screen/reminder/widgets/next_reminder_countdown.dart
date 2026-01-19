@@ -8,7 +8,9 @@ import '/config/global_color.dart';
 import '../controller/reminder_controller.dart';
 
 class NextReminderCountdown extends StatefulWidget {
-  const NextReminderCountdown({super.key});
+  const NextReminderCountdown({super.key, this.margin});
+
+  final EdgeInsetsGeometry? margin;
 
   @override
   State<NextReminderCountdown> createState() => _NextReminderCountdownState();
@@ -83,7 +85,7 @@ class _NextReminderCountdownState extends State<NextReminderCountdown> {
         return const SizedBox.shrink();
       }
       return Container(
-        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        margin: widget.margin ?? EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
           gradient: GlobalColors.linearPrimary2,

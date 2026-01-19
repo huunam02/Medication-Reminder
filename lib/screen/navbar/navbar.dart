@@ -1,4 +1,3 @@
-import '/config/global_sadow.dart';
 import '/lang/l.dart';
 import '/screen/history/history.dart';
 import '../reminder/reminder_screen.dart';
@@ -46,86 +45,165 @@ class _NavbarScreenState extends State<NavbarScreen> {
   Widget build(BuildContext context) {
     return BodyCustom(
       isShowBgImages: false,
-      bottomNavigationBar: Container(
-        height: 90.h,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: GlobalShadow.primary,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32.r),
-            topRight: Radius.circular(32.r),
-          ),
-        ),
-        child: Row(
-          children: [
-            buildNavBarItem(
-              Icons.medication,
-              L.takeMedicine.tr,
-              0,
-            ),
-            buildNavBarItem(
-              _selectedIndex == 1
-                  ? "assets/icons/navbar22.svg"
-                  : "assets/icons/navbar2.svg",
-              L.history.tr,
-              1,
-            ),
-            buildNavBarItem(
-              _selectedIndex == 2
-                  ? "assets/icons/notification_on.svg"
-                  : "assets/icons/notification.svg",
-              L.reminder.tr,
-              2,
-            ),
-            buildNavBarItem(
-              _selectedIndex == 3
-                  ? "assets/icons/navbar33.svg"
-                  : "assets/icons/navbar3.svg",
-              L.settings.tr,
-              3,
-            ),
-          ],
-        ),
+      bottomNavigationBar: _RoundedNavBar(
+        items: _navItems,
+        selectedIndex: _selectedIndex,
+        onItemTap: _onItemTapped,
       ),
       child: _screens[_selectedIndex],
     );
   }
 
-  Widget buildNavBarItem(dynamic icon, String label, int index) {
+  List<_NavItem> get _navItems => [
+        _NavItem(
+          label: L.takeMedicine.tr,
+          iconData: Icons.medication_outlined,
+          activeIconData: Icons.medication,
+        ),
+        _NavItem(
+          label: L.history.tr,
+          iconPath: 'assets/icons/navbar2.svg',
+          activeIconPath: 'assets/icons/navbar22.svg',
+        ),
+        _NavItem(
+          label: L.reminder.tr,
+          iconPath: 'assets/icons/notification.svg',
+          activeIconPath: 'assets/icons/notification_on.svg',
+        ),
+        _NavItem(
+          label: L.settings.tr,
+          iconPath: 'assets/icons/navbar3.svg',
+          activeIconPath: 'assets/icons/navbar33.svg',
+        ),
+      ];
+}
+
+class _RoundedNavBar extends StatelessWidget {
+  final List<_NavItem> items;
+  final int selectedIndex;
+  final ValueChanged<int> onItemTap;
+
+  const _RoundedNavBar({
+    required this.items,
+    required this.selectedIndex,
+    required this.onItemTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final highlight = GlobalColors.linearPrimary2.colors.last;
+    return Padding(
+      padding: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 16.h),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.white,
+              GlobalColors.container1.withOpacity(0.9),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(36),
+          border: Border.all(color: highlight.withOpacity(0.12)),
+          boxShadow: [
+            BoxShadow(
+              color: highlight.withOpacity(0.18),
+              blurRadius: 32,
+              offset: const Offset(0, 18),
+            ),
+          ],
+        ),
+        child: Row(
+          children: List.generate(
+            items.length,
+            (index) => _NavButton(
+              item: items[index],
+              isSelected: selectedIndex == index,
+              onTap: () => onItemTap(index),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavButton extends StatelessWidget {
+  final _NavItem item;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  static const _duration = Duration(milliseconds: 220);
+
+  const _NavButton({
+    required this.item,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final highlight = GlobalColors.linearPrimary2.colors.last;
     return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          _onItemTapped(index);
-        },
-        child: Container(
-          color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(28),
+        child: AnimatedContainer(
+          duration: _duration,
+          curve: Curves.easeOut,
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          decoration: BoxDecoration(
+            color: isSelected ? highlight.withOpacity(0.12) : Colors.transparent,
+            borderRadius: BorderRadius.circular(28),
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              icon is String
-                  ? SvgPicture.asset(
-                      icon,
-                      height: 24,
-                      width: 24,
-                      fit: BoxFit.cover,
-                    )
-                  : Icon(
-                      icon,
-                      size: 24,
-                      color: _selectedIndex == index
-                          ? GlobalColors.colorLastLinear
-                          : GlobalColors.newtral,
-                    ),
-              const SizedBox(
-                height: 4.0,
+              AnimatedContainer(
+                duration: _duration,
+                curve: Curves.easeOut,
+                padding: EdgeInsets.all(isSelected ? 10 : 8),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: isSelected ? Colors.white : GlobalColors.bg1.withOpacity(0.6),
+                  boxShadow: isSelected
+                      ? [
+                          BoxShadow(
+                            color: highlight.withOpacity(0.35),
+                            blurRadius: 18,
+                            offset: const Offset(0, 10),
+                          ),
+                        ]
+                      : null,
+                ),
+                child: _NavIcon(
+                  item: item,
+                  isSelected: isSelected,
+                  color: highlight,
+                ),
               ),
-              Text(
-                label,
-                style: _selectedIndex == index
-                    ? GlobalTextStyles.font12w600ColorWhite
-                        .copyWith(color: GlobalColors.colorLastLinear)
+              8.verticalSpace,
+              AnimatedDefaultTextStyle(
+                duration: _duration,
+                style: isSelected
+                    ? GlobalTextStyles.font12w600ColorWhite.copyWith(color: highlight)
                     : GlobalTextStyles.font12w400ColorNewtral,
-                overflow: TextOverflow.ellipsis,
+                child: Text(
+                  item.label,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              6.verticalSpace,
+              AnimatedContainer(
+                duration: _duration,
+                height: 4,
+                width: isSelected ? 22 : 0,
+                decoration: BoxDecoration(
+                  color: highlight,
+                  borderRadius: BorderRadius.circular(4),
+                ),
               ),
             ],
           ),
@@ -133,4 +211,57 @@ class _NavbarScreenState extends State<NavbarScreen> {
       ),
     );
   }
+}
+
+class _NavIcon extends StatelessWidget {
+  final _NavItem item;
+  final bool isSelected;
+  final Color color;
+
+  const _NavIcon({
+    required this.item,
+    required this.isSelected,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (item.iconPath != null) {
+      final path = isSelected && item.activeIconPath != null
+          ? item.activeIconPath!
+          : item.iconPath!;
+      return SvgPicture.asset(
+        path,
+        height: 20,
+        width: 20,
+      );
+    }
+
+    final iconData = isSelected && item.activeIconData != null
+        ? item.activeIconData!
+        : item.iconData;
+
+    return Icon(
+      iconData,
+      size: 20,
+      color: isSelected ? color : GlobalColors.newtral,
+    );
+  }
+}
+
+class _NavItem {
+  final String label;
+  final String? iconPath;
+  final String? activeIconPath;
+  final IconData? iconData;
+  final IconData? activeIconData;
+
+  const _NavItem({
+    required this.label,
+    this.iconPath,
+    this.activeIconPath,
+    this.iconData,
+    this.activeIconData,
+  }) : assert(iconPath != null || iconData != null,
+            'Each nav item requires either an asset path or icon data');
 }

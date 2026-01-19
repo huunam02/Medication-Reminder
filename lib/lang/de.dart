@@ -44,7 +44,6 @@ Map<String, String> deLanguage = {
 
   L.thisActionMayContainAdvertising: "Diese Aktion kann Werbung enthalten.",
 
-  L.splashDes: "Diese Aktion kann Werbung enthalten.",
   //
   L.permission: "Berechtigung",
   L.allowAccess: "Zugriff erlauben",
@@ -56,6 +55,18 @@ Map<String, String> deLanguage = {
   L.recentDrinkingHistory: "Letzte Medikamentenhistorie",
   L.setting: "Einstellungen",
   L.language: "Sprache",
+  L.languageHeroDescription:
+      "Passe Erinnerungen in der Sprache an, in der du dich am wohlsten fühlst.",
+  L.languageAvailableTitle: "Verfügbare Sprachen",
+  L.languageAvailableSubtitle:
+      "Wähle jetzt eine aus, du kannst sie jederzeit in den Einstellungen ändern.",
+  L.reminderOverviewTitle: "Täglicher Medikationsplan",
+  L.reminderOverviewSubtitle:
+      "Bleiben Sie konsequent bei Ihrem Medikamentenplan.",
+  L.reminderActiveLabel: "Aktiv",
+  L.reminderEmptyTitle: "Noch keine Erinnerungen",
+  L.reminderEmptySubtitle:
+      "Erstellen Sie Ihre erste Erinnerung, um rechtzeitig benachrichtigt zu werden.",
   L.rate: "Bewerten",
   L.rateUs: "Bewerten Sie uns",
   L.share: "Teilen",
@@ -95,10 +106,8 @@ Map<String, String> deLanguage = {
   L.nextReminder: "Nächste Erinnerung",
   L.drink: "MEDIKAMENT NEHMEN",
   L.createDrink: "Medikament hinzufügen",
-  L.water: "Medikament",
   L.history: "Verlauf",
   L.settings: "Einstellungen",
-  L.settingtitle: "Einstellungen",
   L.reminderMode: "Erinnerungsmodus",
   L.reminderModeDes:
       "Wählen Sie den Erinnerungsmodus und richten Sie Ihre Erinnerung ein.",
@@ -159,4 +168,6 @@ Map<String, String> deLanguage = {
   L.indonesianLanguage: "Indonesisch",
   L.portugueseLanguage: "Portugiesisch",
   L.englishLanguage: "Englisch",
+    L.splashHeroSubtitle: "Bleib im Zeitplan und fühl dich großartig.",
+    L.splashPreparingReminders: "Wir bereiten deine Erinnerungen vor...",
 };
