@@ -20,7 +20,7 @@ class HistoryController extends GetxController {
   RxList<int> listHour = <int>[].obs;
   RxList<int> listDayOfMonth = <int>[].obs;
 
-  void getListHistoryDay() async {
+  Future<void> getListHistoryDay() async {
     final List data = await DatabaseHelper().queryByDay(daySelect.value);
     listHistoryDay.value = data
         .map(
@@ -139,7 +139,7 @@ class HistoryController extends GetxController {
   void deleteRecord(History history, int tabId) async {
     await DatabaseHelper().deleteHistory(history.id!);
     if (tabId == 0) {
-      getListHistoryDay();
+      await getListHistoryDay();
     } else if (tabId == 1) {
       getListHistoryWeek();
     } else {
